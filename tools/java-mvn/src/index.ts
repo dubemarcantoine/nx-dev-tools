@@ -6,7 +6,16 @@ import {
   ProjectGraphProcessorContext,
 } from '@nrwl/devkit';
 import {XMLParser} from "fast-xml-parser";
-import {getFileContents, readProjectJson} from "@nx-dev-tools/core";
+import * as fs from "fs";
+
+// TODO: Use functions from core. Issue right now with imports after build...
+export const readProjectJson = (path: string): ProjectConfiguration => {
+  return JSON.parse(getFileContents(`${path}/project.json`));
+}
+
+export const getFileContents = (path: string): string => {
+  return fs.readFileSync(path, {encoding: 'utf8', flag: 'r'});
+}
 
 const parser = new XMLParser();
 
