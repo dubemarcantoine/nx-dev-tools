@@ -1,0 +1,67 @@
+{
+  "name": "java-mvn",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/java-mvn/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/java-mvn",
+        "main": "tools/java-mvn/src/index.ts",
+        "tsConfig": "tools/java-mvn/tsconfig.lib.json",
+        "assets": [
+          "tools/java-mvn/*.md",
+          {
+            "input": "./tools/java-mvn/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/java-mvn/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/java-mvn",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./tools/java-mvn",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "tools/java-mvn/**/*.ts",
+          "tools/java-mvn/generators.json",
+          "tools/java-mvn/executors.json",
+          "tools/java-mvn/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "tools/java-mvn/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "java-mvn",
+  "version": "0.0.1",
+  "generators": {
+    "java-mvn": {
+      "factory": "./src/generators/java-mvn/generator",
+      "schema": "./src/generators/java-mvn/schema.json",
+      "description": "java-mvn generator"
+    }
+  }
+}
