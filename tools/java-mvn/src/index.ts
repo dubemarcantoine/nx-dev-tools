@@ -7,10 +7,15 @@ import {
 } from '@nrwl/devkit';
 import {XMLParser} from "fast-xml-parser";
 import * as fs from "fs";
+import {NxJsonConfiguration} from "nx/src/config/nx-json";
 
 // TODO: Use functions from core. Issue right now with imports after build...
 export const readProjectJson = (path: string): ProjectConfiguration => {
   return JSON.parse(getFileContents(`${path}/project.json`));
+}
+
+export const readNxJson = (): NxJsonConfiguration => {
+  return JSON.parse(getFileContents(`nx.json`));
 }
 
 export const getFileContents = (path: string): string => {
@@ -34,17 +39,23 @@ export const processProjectGraph = (
   context: ProjectGraphProcessorContext
 ): ProjectGraph => {
   const builder = new ProjectGraphBuilder(graph);
-  const parentRoot = 'libs/backend/lte-parent';
+
+  const nxJsonConf = readNxJson();
+
+  nxJsonConf.pluginsConfig['nx-dev-tools/dist/tools/java-mvn']['parent-pom-folder']
+
+  const parentRoot = nxJsonConf.pluginsConfig['nx-dev-tools/dist/tools/java-mvn']['parent-pom-folder'];
+
+  const parentPom = readPom(parentRoot);
+  const parentGroupId = parentPom.project.groupId;
 
   const accumulator: { [artifact: string]: Project } = {};
-  buildProjectTree(builder, parentRoot, null, null, accumulator);
+  buildProjectTree(builder, parentRoot, null, parentGroupId, accumulator);
 
   Object.entries(accumulator).forEach(([, project]) => {
     if (!Array.isArray(project?.dependencies)) {
       if (project?.dependencies?.groupId === '${project.groupId}') {
-        // TODO: Do not hardcode, get parent groupid
-        logger.info(project?.dependencies?.groupId)
-        project.dependencies.groupId = 'ca.tourismeestrie';
+        project.dependencies.groupId = parentGroupId;
       }
 
       const matchingProject = accumulator[`${project?.dependencies?.groupId}:${project?.dependencies?.artifactId}`];
@@ -54,8 +65,7 @@ export const processProjectGraph = (
     } else {
       (project as any)?.dependencies?.forEach(dependency => {
         if (dependency?.groupId === '${project.groupId}') {
-          // TODO: Do not hardcode, get parent groupid
-          dependency.groupId = 'ca.tourismeestrie';
+          dependency.groupId = parentGroupId;
         }
 
         const matchingProject = accumulator[`${dependency?.groupId}:${dependency?.artifactId}`];
@@ -76,10 +86,6 @@ export const buildProjectTree = (builder: ProjectGraphBuilder, path: string, par
 
   if (parent) {
     builder.addImplicitDependency(project.name, parent.name);
-  }
-
-  if (!parentGroupId) {
-    parentGroupId = pom.project.groupId;
   }
 
   accumulator[`${parentGroupId}:${pom.project.artifactId}`] = {
