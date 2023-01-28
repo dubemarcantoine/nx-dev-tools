@@ -93,6 +93,10 @@ export const buildProjectTree = (builder: ProjectGraphBuilder, path: string, par
     dependencies: pom.project?.dependencies?.dependency,
   };
 
+  if (!Array.isArray(pom.project?.modules?.module)) {
+    pom.project.modules.module = [pom.project?.modules?.module];
+  }
+
   pom.project?.modules?.module?.forEach(module => {
     buildProjectTree(builder, `${path}/${module}`, project, parentGroupId, accumulator);
   });
