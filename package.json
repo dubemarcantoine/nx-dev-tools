@@ -34,6 +34,6 @@
   },
   "peerDependencies": {
     "fast-xml-parser": "^4.0.15",
-    "@nrwl/devkit": "15.6.2"
+    "@nrwl/devkit": "^15.0.0"
   }
 }
