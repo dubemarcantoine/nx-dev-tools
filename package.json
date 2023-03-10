@@ -1,11 +1,9 @@
 {
   "name": "nx-dev-tools",
-  "version": "0.0.0",
+  "version": "0.0.6",
   "license": "MIT",
   "scripts": {},
-  "private": true,
   "devDependencies": {
-    "@nrwl/devkit": "15.6.2",
     "@nrwl/eslint-plugin-nx": "15.6.2",
     "@nrwl/jest": "15.6.2",
     "@nrwl/js": "15.6.2",
@@ -21,7 +19,6 @@
     "@typescript-eslint/parser": "^5.36.1",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
-    "fast-xml-parser": "^4.0.15",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "jsonc-eslint-parser": "^2.1.0",
@@ -34,5 +31,9 @@
   "dependencies": {
     "@swc/helpers": "~0.4.11",
     "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "fast-xml-parser": "^4.0.15",
+    "@nrwl/devkit": "15.6.2"
   }
 }
