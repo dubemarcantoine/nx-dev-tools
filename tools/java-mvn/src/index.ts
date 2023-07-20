@@ -42,8 +42,6 @@ export const processProjectGraph = (
 
   const nxJsonConf = readNxJson();
 
-  nxJsonConf.pluginsConfig['nx-dev-tools/dist/tools/java-mvn']['parent-pom-folder']
-
   const parentRoot = nxJsonConf.pluginsConfig['nx-dev-tools/dist/tools/java-mvn']['parent-pom-folder'];
 
   const parentPom = readPom(parentRoot);
@@ -80,18 +78,24 @@ export const processProjectGraph = (
 }
 
 export const buildProjectTree = (builder: ProjectGraphBuilder, path: string, parent: ProjectConfiguration, parentGroupId: string, accumulator: { [artifact: string]: Project }) => {
-  const project = readProjectJson(path);
+  let project = undefined;
+
+  try {
+    project = readProjectJson(path);
+  } catch (e) {}
 
   let pom = readPom(path);
 
-  if (parent) {
-    builder.addImplicitDependency(project.name, parent.name);
-  }
+  if (project) {
+    if (parent) {
+      builder.addImplicitDependency(project.name, parent.name);
+    }
 
-  accumulator[`${parentGroupId}:${pom.project.artifactId}`] = {
-    projectName: project.name,
-    dependencies: pom.project?.dependencies?.dependency,
-  };
+    accumulator[`${parentGroupId}:${pom.project.artifactId}`] = {
+      projectName: project.name,
+      dependencies: pom.project?.dependencies?.dependency,
+    };
+  }
 
   if (pom.project.modules && !Array.isArray(pom.project?.modules?.module)) {
     pom.project.modules.module = [pom.project?.modules?.module];
