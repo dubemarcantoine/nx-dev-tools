@@ -3,10 +3,10 @@
   "name": "java-mvn",
   "version": "0.0.1",
   "generators": {
-    "java-mvn": {
-      "factory": "./src/generators/java-mvn/generator",
-      "schema": "./src/generators/java-mvn/schema.json",
-      "description": "java-mvn generator"
+    "project": {
+      "factory": "./src/generators/project/generator",
+      "schema": "./src/generators/project/schema.json",
+      "description": "project generator"
     }
   }
 }
