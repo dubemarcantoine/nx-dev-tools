@@ -42,13 +42,14 @@ export const processProjectGraph = (
 
   const nxJsonConf = readNxJson();
 
-  const parentRoot = nxJsonConf.pluginsConfig['nx-dev-tools/dist/tools/java-mvn']['parent-pom-folder'];
+  const parentRoot = nxJsonConf.pluginsConfig['nx-dev-tools/dist/tools/java-mvn']['parent-pom-project-folder'];
+  const parentPomFolder = nxJsonConf.pluginsConfig['nx-dev-tools/dist/tools/java-mvn']['parent-pom-folder'];
 
-  const parentPom = readPom(parentRoot);
+  const parentPom = readPom(parentPomFolder);
   const parentGroupId = parentPom.project.groupId;
 
   const accumulator: { [artifact: string]: Project } = {};
-  buildProjectTree(builder, parentRoot, null, parentGroupId, accumulator);
+  buildProjectTree(builder, parentRoot, parentPomFolder, null, parentGroupId, accumulator);
 
   Object.entries(accumulator).forEach(([, project]) => {
     if (!Array.isArray(project?.dependencies)) {
@@ -77,32 +78,28 @@ export const processProjectGraph = (
   return builder.getUpdatedProjectGraph();
 }
 
-export const buildProjectTree = (builder: ProjectGraphBuilder, path: string, parent: ProjectConfiguration, parentGroupId: string, accumulator: { [artifact: string]: Project }) => {
+export const buildProjectTree = (builder: ProjectGraphBuilder, path: string, pomPath: string, parent: ProjectConfiguration, parentGroupId: string, accumulator: { [artifact: string]: Project }) => {
   let project = undefined;
 
-  try {
-    project = readProjectJson(path);
-  } catch (e) {}
+  project = readProjectJson(path);
 
-  let pom = readPom(path);
+  let pom = readPom(pomPath);
 
-  if (project) {
-    if (parent) {
-      builder.addImplicitDependency(project.name, parent.name);
-    }
-
-    accumulator[`${parentGroupId}:${pom.project.artifactId}`] = {
-      projectName: project.name,
-      dependencies: pom.project?.dependencies?.dependency,
-    };
+  if (parent) {
+    builder.addImplicitDependency(project.name, parent.name);
   }
+
+  accumulator[`${parentGroupId}:${pom.project.artifactId}`] = {
+    projectName: project.name,
+    dependencies: pom.project?.dependencies?.dependency,
+  };
 
   if (pom.project.modules && !Array.isArray(pom.project?.modules?.module)) {
     pom.project.modules.module = [pom.project?.modules?.module];
   }
 
   pom.project?.modules?.module?.forEach(module => {
-    buildProjectTree(builder, `${path}/${module}`, project, parentGroupId, accumulator);
+    buildProjectTree(builder, module, module, project, parentGroupId, accumulator);
   });
 }
 
