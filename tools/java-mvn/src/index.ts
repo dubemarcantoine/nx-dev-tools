@@ -8,15 +8,7 @@ import {
 import {XMLParser} from "fast-xml-parser";
 import * as fs from "fs";
 import {NxJsonConfiguration} from "nx/src/config/nx-json";
-
-// TODO: Use functions from core. Issue right now with imports after build...
-export const readProjectJson = (path: string): ProjectConfiguration => {
-  return JSON.parse(getFileContents(`${path}/project.json`));
-}
-
-export const readNxJson = (): NxJsonConfiguration => {
-  return JSON.parse(getFileContents(`nx.json`));
-}
+import {readProjectJson, readNxJson} from "@nx-dev-tools/core";
 
 export const getFileContents = (path: string): string => {
   return fs.readFileSync(path, {encoding: 'utf8', flag: 'r'});
