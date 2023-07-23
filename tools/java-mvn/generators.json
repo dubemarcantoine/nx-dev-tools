@@ -3,9 +3,9 @@
   "name": "java-mvn",
   "version": "0.0.1",
   "generators": {
-    "project": {
-      "factory": "./src/generators/project/generator",
-      "schema": "./src/generators/project/schema.json",
+    "parent": {
+      "factory": "./src/generators/parent/generator",
+      "schema": "./src/generators/parent/schema.json",
       "description": "project generator"
     }
   }

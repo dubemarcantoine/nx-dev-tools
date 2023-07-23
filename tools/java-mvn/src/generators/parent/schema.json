@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema",
   "cli": "nx",
-  "$id": "Project",
+  "$id": "Parent",
   "title": "",
   "type": "object",
   "properties": {
@@ -60,6 +60,14 @@
       "description": "Version of the project.",
       "default": "1.0.0-SNAPSHOT",
       "alias": "v",
+      "x-priority": "internal",
+      "visible": false
+    },
+    "pomLocation": {
+      "type": "string",
+      "description": "Location of the pom.xml file.",
+      "default": "",
+      "alias": "l",
       "x-priority": "internal",
       "visible": false
     },

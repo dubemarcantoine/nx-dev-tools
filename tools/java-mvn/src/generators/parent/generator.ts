@@ -5,11 +5,11 @@ import {
   getWorkspaceLayout,
   names,
   offsetFromRoot,
-  Tree,
+  Tree, updateJson,
 } from '@nrwl/devkit';
 import * as path from 'path';
 import {ProjectGeneratorSchema} from './schema';
-import {ProjectType} from "@nrwl/workspace";
+import * as fs from "fs";
 
 interface NormalizedSchema extends ProjectGeneratorSchema {
   projectName: string;
@@ -19,6 +19,7 @@ interface NormalizedSchema extends ProjectGeneratorSchema {
   projectRoot: string;
   projectDirectory: string;
   parsedTags: string[];
+  pomLocation: string;
 }
 
 function normalizeOptions(tree: Tree, options: ProjectGeneratorSchema): NormalizedSchema {
@@ -41,15 +42,19 @@ function normalizeOptions(tree: Tree, options: ProjectGeneratorSchema): Normaliz
   const artifactId = options.artifactId;
   const version = options.version;
 
+  const pomLocation = options.pomLocation;
+
   return {
     ...options,
     projectName,
     groupId,
     artifactId,
+    version,
     projectRoot,
     projectDirectory,
     parsedTags,
     projectType,
+    pomLocation,
   };
 }
 
@@ -61,6 +66,22 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
       template: ''
     };
     generateFiles(tree, path.join(__dirname, 'files'), options.projectRoot, templateOptions);
+
+    let pomFolder;
+    if (options.pomLocation) {
+      pomFolder = options.pomLocation;
+      fs.symlinkSync(`${options.projectRoot}/pom.xml`, `${pomFolder}/pom.xml`);
+    } else {
+      pomFolder = options.projectRoot;
+    }
+
+  updateJson(tree, 'nx.json', (nxJson) => {
+    nxJson.pluginsConfig = nxJson.pluginsConfig ?? {};
+    nxJson.pluginsConfig['nx-dev-tools/dist/tools/java-mvn'] = nxJson.pluginsConfig['nx-dev-tools/dist/tools/java-mvn'] ?? {};
+    nxJson.pluginsConfig['nx-dev-tools/dist/tools/java-mvn']['parent-pom-project-folder'] = options.projectRoot;
+    nxJson.pluginsConfig['nx-dev-tools/dist/tools/java-mvn']['parent-pom-folder'] = pomFolder;
+    return nxJson;
+  });
 }
 
 export default async function (tree: Tree, options: ProjectGeneratorSchema) {
