@@ -37,6 +37,32 @@
       },
       "x-prompt": "What name would you like to use?"
     },
+    "groupId": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 2
+      },
+      "x-prompt": "Group id of project to generate."
+    },
+    "artifactId": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 3
+      },
+      "x-prompt": "Artifact id of project to generate."
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the project.",
+      "default": "1.0.0-SNAPSHOT",
+      "alias": "v",
+      "x-priority": "internal",
+      "visible": false
+    },
     "tags": {
       "type": "string",
       "description": "Add tags to the project (used for linting)",

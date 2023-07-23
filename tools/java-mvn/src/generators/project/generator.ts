@@ -13,6 +13,9 @@ import {ProjectType} from "@nrwl/workspace";
 
 interface NormalizedSchema extends ProjectGeneratorSchema {
   projectName: string;
+
+  groupId: string;
+  artifactId: string;
   projectRoot: string;
   projectDirectory: string;
   parsedTags: string[];
@@ -34,9 +37,15 @@ function normalizeOptions(tree: Tree, options: ProjectGeneratorSchema): Normaliz
 
   const projectType = options.projectType;
 
+  const groupId = options.groupId;
+  const artifactId = options.artifactId;
+  const version = options.version;
+
   return {
     ...options,
     projectName,
+    groupId,
+    artifactId,
     projectRoot,
     projectDirectory,
     parsedTags,
