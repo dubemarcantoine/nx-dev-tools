@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "husky install",
     "affected:build": "nx affected:build",
-    "release": "nx run-many --target release"
+    "affected:release": "npx nx affected --target=release"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
