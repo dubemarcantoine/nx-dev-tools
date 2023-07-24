@@ -19,6 +19,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        with:
+          main-branch-name: 'main'
+        uses: nrwl/nx-set-shas@v3
+
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:

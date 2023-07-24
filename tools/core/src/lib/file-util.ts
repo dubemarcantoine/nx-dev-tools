@@ -12,3 +12,4 @@ export const readProjectJson = (path: string): ProjectConfiguration => {
 export const getFileContents = (path: string): string => {
     return fs.readFileSync(path, {encoding: 'utf8', flag: 'r'});
 }
+
