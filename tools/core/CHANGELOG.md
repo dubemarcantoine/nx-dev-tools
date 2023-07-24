@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.0.0...core/v1.0.1) (2023-07-24)
+
+
+### Bug Fixes
+
+* versions ([47280c5](https://github.com/dubemarcantoine/nx-dev-tools/commit/47280c5ba5db223a51dd8148ea48ed45258126a4))
+
 # 1.0.0 (2023-07-24)
 
 
