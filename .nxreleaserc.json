@@ -2,6 +2,7 @@
   "changelog": false,
   "npm": true,
   "github": false,
+  "git": false,
   "repositoryUrl": "https://github.com/dubemarcantoine/nx-dev-tools",
   "branches": [
     "main"
