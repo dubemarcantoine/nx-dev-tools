@@ -1,4 +1,4 @@
-import {ProjectType} from "@nrwl/workspace";
+import { ProjectType } from '@nx/workspace';
 
 export interface ProjectGeneratorSchema {
   name: string;

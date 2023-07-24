@@ -1,6 +1,5 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "cli": "nx",
   "$id": "Parent",
   "title": "",
   "type": "object",
@@ -81,5 +80,8 @@
       "description": "A directory where the project is placed"
     }
   },
-  "required": ["name", "projectType"]
+  "required": [
+    "name",
+    "projectType"
+  ]
 }
