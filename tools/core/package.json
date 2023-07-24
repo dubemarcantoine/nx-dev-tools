@@ -1,6 +1,6 @@
 {
   "name": "@nx-dev-tools/core",
-  "version": "0.0.2",
+  "version": "1.3.0",
   "main": "src/index.js",
   "generators": "./generators.json",
   "executors": "./executors.json",
