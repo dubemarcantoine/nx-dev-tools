@@ -4,7 +4,7 @@ import {
   generateFiles,
   getWorkspaceLayout,
   names,
-  offsetFromRoot,
+  offsetFromRoot, readNxJson,
   Tree,
   updateJson,
 } from '@nrwl/devkit';
@@ -38,7 +38,15 @@ function normalizeOptions(tree: Tree, options: ProjectGeneratorSchema): Normaliz
 
   const artifactId = options.artifactId;
 
-  const parentPomLocation = options.parentPomLocation;
+  const nxJson = readNxJson(tree);
+
+  let parentPomLocation = options.parentPomLocation;
+
+  if (!parentPomLocation) {
+    if (nxJson?.pluginsConfig['@nx-dev-tools/java-mvn']) {
+      parentPomLocation = `${nxJson.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-folder']}/pom.xml`;
+    }
+  }
 
   return {
     ...options,
