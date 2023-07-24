@@ -11,6 +11,9 @@
         "outputPath": "dist/tools/java-mvn",
         "main": "tools/java-mvn/src/index.ts",
         "tsConfig": "tools/java-mvn/tsconfig.lib.json",
+        "packageJson": "tools/java-mvn/package.json",
+        "updateBuildableProjectDepsInPackageJson": true,
+        "buildableProjectDepsInPackageJsonType": "dependencies",
         "assets": [
           "tools/java-mvn/*.md",
           {

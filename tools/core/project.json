@@ -11,6 +11,9 @@
         "outputPath": "dist/tools/core",
         "main": "tools/core/src/index.ts",
         "tsConfig": "tools/core/tsconfig.lib.json",
+        "packageJson": "tools/core/package.json",
+        "updateBuildableProjectDepsInPackageJson": true,
+        "buildableProjectDepsInPackageJsonType": "dependencies",
         "assets": [
           "tools/core/*.md",
           {
