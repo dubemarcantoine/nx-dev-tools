@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.1.1...java-mvn/v1.2.0) (2023-07-24)
+
+
+### Features
+
+* test ([f92f1fc](https://github.com/dubemarcantoine/nx-dev-tools/commit/f92f1fc533364a6860d1ef58fac7a7799507ac0f))
+
 ## [1.1.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.1.0...java-mvn/v1.1.1) (2023-07-24)
 
 
