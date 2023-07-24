@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.5.0...java-mvn/v1.5.1) (2023-07-24)
+
+
+### Bug Fixes
+
+* add missing dep ([eaeddeb](https://github.com/dubemarcantoine/nx-dev-tools/commit/eaeddebea9004df993319d76ec4d00ec173bfe7e))
+
 # [1.5.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.4.0...java-mvn/v1.5.0) (2023-07-24)
 
 
