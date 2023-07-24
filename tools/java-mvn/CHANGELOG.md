@@ -1,3 +1,22 @@
+# 1.0.0 (2023-07-24)
+
+
+### Bug Fixes
+
+* add missing derive shas step ([d31e613](https://github.com/dubemarcantoine/nx-dev-tools/commit/d31e6132f45105d6d2aee4d3d372bf4a2095d791))
+* changelogs ([f2f50de](https://github.com/dubemarcantoine/nx-dev-tools/commit/f2f50decc084f635f4b4b26c89895d8bff89e02c))
+* fix build ([73b60f5](https://github.com/dubemarcantoine/nx-dev-tools/commit/73b60f5f5328dc8115ea456d500e462fabcd6eba))
+* fix changelogs ([0aecb28](https://github.com/dubemarcantoine/nx-dev-tools/commit/0aecb2806ad5d1d121a95dbef0c209ce9cfd81b2))
+* package-lock ([ff40d07](https://github.com/dubemarcantoine/nx-dev-tools/commit/ff40d07ce36ebe523662b9ff4775d36a275ddde0))
+* versions ([47280c5](https://github.com/dubemarcantoine/nx-dev-tools/commit/47280c5ba5db223a51dd8148ea48ed45258126a4))
+
+
+### Features
+
+* bump versions ([8edebd9](https://github.com/dubemarcantoine/nx-dev-tools/commit/8edebd9b44e6fd8926a358d440fad483c63ba8d3))
+* fix build ([200a0da](https://github.com/dubemarcantoine/nx-dev-tools/commit/200a0da2340671ea9d1a23f9d1e4f6e4ef11d660))
+* start project generator ([02d5f5a](https://github.com/dubemarcantoine/nx-dev-tools/commit/02d5f5afb34289d17d707bf47898a1f704b9b222))
+
 # [1.2.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.1.1...java-mvn/v1.2.0) (2023-07-24)
 
 
