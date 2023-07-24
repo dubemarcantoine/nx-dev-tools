@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.1.0...java-mvn/v1.1.1) (2023-07-24)
+
+
+### Bug Fixes
+
+* bugfix ([73e7c1b](https://github.com/dubemarcantoine/nx-dev-tools/commit/73e7c1b885c47b739042f754b6499669cad8bc54))
+
 # [1.1.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.0.0...java-mvn/v1.1.0) (2023-07-24)
 
 
