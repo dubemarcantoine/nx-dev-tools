@@ -77,9 +77,9 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
 
   updateJson(tree, 'nx.json', (nxJson) => {
     nxJson.pluginsConfig = nxJson.pluginsConfig ?? {};
-    nxJson.pluginsConfig['nx-dev-tools/dist/tools/java-mvn'] = nxJson.pluginsConfig['nx-dev-tools/dist/tools/java-mvn'] ?? {};
-    nxJson.pluginsConfig['nx-dev-tools/dist/tools/java-mvn']['parent-pom-project-folder'] = options.projectRoot;
-    nxJson.pluginsConfig['nx-dev-tools/dist/tools/java-mvn']['parent-pom-folder'] = pomFolder;
+    nxJson.pluginsConfig['@nx-dev-tools/java-mvn'] = nxJson.pluginsConfig['@nx-dev-tools/java-mvn'] ?? {};
+    nxJson.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-project-folder'] = options.projectRoot;
+    nxJson.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-folder'] = pomFolder;
     return nxJson;
   });
 }
