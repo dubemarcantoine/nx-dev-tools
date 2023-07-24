@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "Parent",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "projectType": {
+      "description": "Type of project.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "type": "string",
+      "x-prompt": {
+        "message": "What kind of project are you generating?",
+        "type": "list",
+        "items": [
+          {
+            "value": "application",
+            "label": "Application"
+          },
+          {
+            "value": "library",
+            "label": "Library"
+          }
+        ]
+      },
+      "x-priority": "important"
+    },
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      },
+      "x-prompt": "What name would you like to use?"
+    },
+    "artifactId": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 2
+      },
+      "x-prompt": "Artifact id of project to generate."
+    },
+    "parentPomLocation": {
+      "type": "string",
+      "description": "Location of the parent pom file",
+      "alias": "p",
+      "x-priority": "internal",
+      "visible": false
+    },
+    "resourcesApplicationExtension": {
+      "type": "string",
+      "description": "The resources/application file extension.",
+      "default": "properties",
+      "alias": "ra",
+      "x-priority": "internal",
+      "x-prompt": {
+        "message": "What is the extension of the resources/application file?",
+        "type": "list",
+        "items": [
+          {
+            "value": "properties",
+            "label": "properties"
+          },
+          {
+            "value": "yaml",
+            "label": "yaml"
+          }
+        ]
+      },
+      "visible": false
+    },
+    "tags": {
+      "type": "string",
+      "description": "Add tags to the project (used for linting)",
+      "alias": "t"
+    },
+    "directory": {
+      "type": "string",
+      "description": "A directory where the project is placed"
+    }
+  },
+  "required": [
+    "name",
+    "projectType",
+    "artifactId"
+  ]
+}
