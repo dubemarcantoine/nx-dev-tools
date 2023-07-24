@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.4.0...java-mvn/v1.5.0) (2023-07-24)
+
+
+### Features
+
+* force new tag versions ([f29a432](https://github.com/dubemarcantoine/nx-dev-tools/commit/f29a432d6194ad85dfebe8f6ac809069b990026f))
+
 # 1.0.0 (2023-07-24)
 
 
