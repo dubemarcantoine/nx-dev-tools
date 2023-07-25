@@ -14,12 +14,10 @@ import * as fs from "fs";
 interface NormalizedSchema extends ProjectGeneratorSchema {
   projectName: string;
 
-  groupId: string;
   artifactId: string;
   projectRoot: string;
   projectDirectory: string;
   parsedTags: string[];
-  pomLocation: string;
 }
 
 function normalizeOptions(tree: Tree, options: ProjectGeneratorSchema): NormalizedSchema {
@@ -39,7 +37,7 @@ function normalizeOptions(tree: Tree, options: ProjectGeneratorSchema): Normaliz
   const projectType = options.projectType;
 
   const groupId = options.groupId;
-  const artifactId = options.artifactId;
+  const artifactId = options.name;
   const version = options.version;
 
   const pomLocation = options.pomLocation;

@@ -34,7 +34,7 @@
         "$source": "argv",
         "index": 1
       },
-      "x-prompt": "What name would you like to use?"
+      "x-prompt": "What name would you like to use? The name will also be used for the artifact id."
     },
     "groupId": {
       "type": "string",
@@ -44,15 +44,6 @@
         "index": 2
       },
       "x-prompt": "Group id of project to generate."
-    },
-    "artifactId": {
-      "type": "string",
-      "description": "",
-      "$default": {
-        "$source": "argv",
-        "index": 3
-      },
-      "x-prompt": "Artifact id of project to generate."
     },
     "version": {
       "type": "string",
@@ -82,6 +73,7 @@
   },
   "required": [
     "name",
-    "projectType"
+    "projectType",
+    "groupId"
   ]
 }

@@ -34,16 +34,7 @@
         "$source": "argv",
         "index": 1
       },
-      "x-prompt": "What name would you like to use?"
-    },
-    "artifactId": {
-      "type": "string",
-      "description": "",
-      "$default": {
-        "$source": "argv",
-        "index": 2
-      },
-      "x-prompt": "Artifact id of project to generate."
+      "x-prompt": "What name would you like to use? The name will also be used for the artifact id."
     },
     "parentPomLocation": {
       "type": "string",
@@ -56,22 +47,8 @@
       "type": "string",
       "description": "The resources/application file extension.",
       "default": "properties",
-      "alias": "ra",
-      "x-priority": "internal",
-      "x-prompt": {
-        "message": "What is the extension of the resources/application file?",
-        "type": "list",
-        "items": [
-          {
-            "value": "properties",
-            "label": "properties"
-          },
-          {
-            "value": "yaml",
-            "label": "yaml"
-          }
-        ]
-      },
+      "alias": "rae",
+      "x-priority": "important",
       "visible": false
     },
     "tags": {
@@ -87,6 +64,6 @@
   "required": [
     "name",
     "projectType",
-    "artifactId"
+    "resourcesApplicationExtension"
   ]
 }

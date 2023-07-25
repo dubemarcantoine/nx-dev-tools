@@ -15,3 +15,20 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+# Example commands
+
+## Generator
+### Parent
+Generate a parent project with a pom at the root of our project
+
+```shell
+npx nx generate @nx-dev-tools/java-mvn:parent library parent-lib com.example -l .
+```
+
+### Project
+Generate a project
+
+```shell
+npx nx generate @nx-dev-tools/java-mvn:project library lib1 -rae properties
+```

@@ -17,6 +17,7 @@ interface NormalizedSchema extends ProjectGeneratorSchema {
   projectName: string;
   projectRoot: string;
   projectDirectory: string;
+  artifactId: string;
   parsedTags: string[];
   parentArtifactId: string;
   parentGroupId: string;
@@ -48,7 +49,7 @@ const normalizeOptions = async (tree: Tree, options: ProjectGeneratorSchema): Pr
 
   const projectType = options.projectType;
 
-  const artifactId = options.artifactId;
+  const artifactId = options.name;
 
   const nxJson = readNxJson(tree);
 
