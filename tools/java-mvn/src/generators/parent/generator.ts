@@ -68,10 +68,14 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
     let pomFolder;
     if (options.pomLocation) {
       pomFolder = options.pomLocation;
-      fs.symlinkSync(`${options.projectRoot}/pom.xml`, `${pomFolder}/pom.xml`);
+      const pomLocationAndProjectRelativePath = path.relative(pomFolder, options.projectRoot);
+      fs.symlinkSync(`${pomLocationAndProjectRelativePath}/pom.xml`, `${pomFolder}/pom.xml`);
     } else {
       pomFolder = options.projectRoot;
     }
+
+    console.log(`${options.projectRoot}/pom.xml`)
+    console.log(path.relative(pomFolder, options.projectRoot))
 
   updateJson(tree, 'nx.json', (nxJson) => {
     nxJson.pluginsConfig = nxJson.pluginsConfig ?? {};
