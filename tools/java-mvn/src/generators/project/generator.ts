@@ -9,10 +9,9 @@ import {
   Tree,
 } from '@nrwl/devkit';
 import * as path from 'path';
-import * as xml2js from 'xml2js';
 import {ProjectGeneratorSchema} from './schema';
 import {readPom} from "../../core/pom";
-import {getFileContents} from "@nx-dev-tools/core";
+import {XMLBuilder} from "fast-xml-parser";
 
 interface NormalizedSchema extends ProjectGeneratorSchema {
   projectName: string;
@@ -53,7 +52,7 @@ const normalizeOptions = async (tree: Tree, options: ProjectGeneratorSchema): Pr
     }
   }
 
-  const parentPom = await getPom(parentPomLocation);
+  const parentPom = readPom(parentPomLocation);
 
   const parentArtifactId = parentPom.project.artifactId;
   const parentGroupId = parentPom.project.groupId;
@@ -87,69 +86,37 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
 }
 
 const updateParentPom = async (tree: Tree, options: NormalizedSchema) => {
-  const parentPom = await getPom(options.parentPomLocation);
+  const parentPom = readPom(options.parentPomLocation);
 
-  if (!parentPom.project.modules) {
-    parentPom.project.modules = [
-      {
-        module: [],
-      },
-    ];
+  if (!parentPom.project?.modules?.module) {
+    parentPom.project.modules = {
+      module: [],
+    };
   }
 
-  console.log(parentPom.project.modules)
-  console.log(parentPom.project.modules.filter(obj => !!obj.module))
-  if (parentPom.project.modules.filter(obj => !!obj.module).length === 0) {
-    console.log('here')
-    parentPom.project.modules = [
-      {
-        module: [],
-      },
-    ];
+  parentPom.project.modules.module.push(path.relative(options.parentPomLocation.replace('/pom.xml', ''), options.projectRoot));
+
+  if (!parentPom.project?.dependencyManagement?.dependencies?.dependency) {
+    parentPom.project.dependencyManagement = {
+      dependencies: {
+        dependency: [],
+      }
+    };
   }
 
-  console.log(parentPom.project)
-
-  parentPom.project.modules.filter(obj => {
-    if (obj.module) {
-      obj.module.push(options.projectRoot)
-    }
+  parentPom.project.dependencyManagement.dependencies.dependency.push({
+    groupId: '${project.groupId}',
+    artifactId: options.artifactId,
+    version: '${project.version}',
   });
 
-  // if (!parentPom.project?.dependencyManagement?.dependencies?.dependency) {
-  //   parentPom.project.dependencyManagement.dependencies = {
-  //     dependency: []
-  //   }
-  // }
-  //
-  // if (!parentPom.project?.dependencyManagement) {
-  //   parentPom.project.dependencyManagement = {};
-  // }
-  //
-  // if (!parentPom.project.dependencyManagement.dependencies) {
-  //   parentPom.project.dependencyManagement.dependencies = {};
-  // }
-  //
-  // if (!parentPom.project.dependencyManagement.dependencies.dependency) {
-  //   parentPom.project.dependencyManagement.dependencies.dependency = [];
-  // }
-  //
-  // console.log(parentPom.project)
-  // console.log(parentPom.project.dependencyManagement)
-  // console.log(parentPom.project.dependencyManagement.dependencies)
-  //
-  // parentPom.project.dependencyManagement.dependencies.dependency.push({
-  //   groupId: '${project.groupId}',
-  //   artifactId: options.artifactId,
-  //   version: '${project.version}',
-  // })
+  const builder = new XMLBuilder({
+    ignoreAttributes: false,
+    format: true,
+  })
+  const output = builder.build(parentPom)
 
-  console.log(JSON.stringify(parentPom))
-
-  const builder = new xml2js.Builder();
-  const xmlStr = builder.buildObject(parentPom);
-
-  tree.write(options.parentPomLocation, xmlStr);
+  tree.write(options.parentPomLocation, output);
 }
 
 export default async function (tree: Tree, options: ProjectGeneratorSchema) {
@@ -174,17 +141,3 @@ export default async function (tree: Tree, options: ProjectGeneratorSchema) {
   await updateParentPom(tree, normalizedOptions);
 }
 
-const getPom = async (pomPath: string): Promise<any> => {
-  return await new Promise((resolve, reject) => {
-    const parser = new xml2js.Parser()
-    try {
-      parser.parseStringPromise(getFileContents(pomPath)).then((result) => {
-        return resolve(result)
-      }).catch((err) => {
-        return reject(err);
-      });
-    } catch (e) {
-      return reject('No pom parent project found. Make sure that a parent project was generated or that a parent pom path is set in `pluginsConfig["@nx-dev-tools/java-mvn"]["parent-pom-folder"]`');
-    }
-  })
-}
