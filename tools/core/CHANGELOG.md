@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.5.0...core/v1.6.0) (2023-07-25)
+
+
+### Features
+
+* update parent pom when adding a project ([d39701f](https://github.com/dubemarcantoine/nx-dev-tools/commit/d39701f3a1252c64f0b78c10da2023a179fe1592))
+
 # [1.5.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.4.0...core/v1.5.0) (2023-07-24)
 
 
