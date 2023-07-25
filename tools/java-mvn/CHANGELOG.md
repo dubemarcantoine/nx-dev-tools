@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.5.1...java-mvn/v1.6.0) (2023-07-25)
+
+
+### Features
+
+* update parent pom when adding a project ([d39701f](https://github.com/dubemarcantoine/nx-dev-tools/commit/d39701f3a1252c64f0b78c10da2023a179fe1592))
+
 ## [1.5.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.5.0...java-mvn/v1.5.1) (2023-07-24)
 
 
