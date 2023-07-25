@@ -22,6 +22,14 @@ interface NormalizedSchema extends ProjectGeneratorSchema {
   parentGroupId: string;
   parentVersion: string;
   parentRelativePath: string;
+
+  packageDirectory: string;
+  packageName: string;
+  className: string;
+}
+
+const snakeCaseToCamelCase = (artifactId: string): string => {
+  return artifactId.replace(/[-_][a-z]/g, (group) => group.slice(-1).toUpperCase())
 }
 
 const normalizeOptions = async (tree: Tree, options: ProjectGeneratorSchema): Promise<NormalizedSchema> => {
@@ -59,6 +67,12 @@ const normalizeOptions = async (tree: Tree, options: ProjectGeneratorSchema): Pr
   const parentVersion = parentPom.project.version;
   const parentRelativePath = path.relative(projectRoot, parentPomLocation);
 
+  const camelCaseArtifactId = snakeCaseToCamelCase(artifactId);
+  const packageName = `${parentGroupId}.${camelCaseArtifactId}`;
+  const packageDirectory = packageName.replaceAll('.', '/');
+
+  const className = camelCaseArtifactId[0].toUpperCase() + camelCaseArtifactId.slice(1);
+
   return {
     ...options,
     projectName,
@@ -71,7 +85,10 @@ const normalizeOptions = async (tree: Tree, options: ProjectGeneratorSchema): Pr
     parentGroupId,
     parentVersion,
     parentRelativePath,
-    parentPomLocation
+    parentPomLocation,
+    packageDirectory,
+    packageName,
+    className
   };
 }
 
