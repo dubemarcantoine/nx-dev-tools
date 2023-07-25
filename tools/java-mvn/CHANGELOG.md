@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.6.0...java-mvn/v1.7.0) (2023-07-25)
+
+
+### Features
+
+* add dependency management and module setup when adding new java mvn project ([fb0f0ed](https://github.com/dubemarcantoine/nx-dev-tools/commit/fb0f0ed2604532174208cee1b51404d7ef12c719))
+
 # [1.6.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.5.1...java-mvn/v1.6.0) (2023-07-25)
 
 
