@@ -40,9 +40,5 @@
     "libsDir": "libs"
   },
   "pluginsConfig": {
-    "@nx-dev-tools/java-mvn": {
-      "parent-pom-project-folder": "libs/asdf",
-      "parent-pom-folder": "libs/asdf"
-    }
   }
 }

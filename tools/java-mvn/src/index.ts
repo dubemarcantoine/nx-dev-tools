@@ -6,13 +6,8 @@ import {
   ProjectGraphProcessorContext,
 } from '@nrwl/devkit';
 import {XMLParser} from "fast-xml-parser";
-import * as fs from "fs";
-import {NxJsonConfiguration} from "nx/src/config/nx-json";
-import {readProjectJson, readNxJson} from "@nx-dev-tools/core";
-
-export const getFileContents = (path: string): string => {
-  return fs.readFileSync(path, {encoding: 'utf8', flag: 'r'});
-}
+import {readProjectJson, readNxJson, getFileContents} from "@nx-dev-tools/core";
+import {readPomInFolder} from "./core/pom";
 
 const parser = new XMLParser();
 
@@ -37,7 +32,7 @@ export const processProjectGraph = (
   const parentRoot = nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-project-folder'];
   const parentPomFolder = nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-folder'];
 
-  const parentPom = readPom(parentPomFolder);
+  const parentPom = readPomInFolder(parentPomFolder);
   const parentGroupId = parentPom.project.groupId;
 
   const accumulator: { [artifact: string]: Project } = {};
@@ -75,7 +70,7 @@ export const buildProjectTree = (builder: ProjectGraphBuilder, path: string, pom
 
   project = readProjectJson(path);
 
-  let pom = readPom(pomPath);
+  let pom = readPomInFolder(pomPath);
 
   if (parent) {
     builder.addImplicitDependency(project.name, parent.name);
@@ -95,6 +90,3 @@ export const buildProjectTree = (builder: ProjectGraphBuilder, path: string, pom
   });
 }
 
-const readPom = (path: string): any => {
-  return parser.parse(getFileContents(`${path}/pom.xml`));
-}
