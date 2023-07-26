@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.6.0...core/v1.6.1) (2023-07-26)
+
+
+### Bug Fixes
+
+* fix java-mvn dep graph relative paths ([82802df](https://github.com/dubemarcantoine/nx-dev-tools/commit/82802dfea9ec4c2e910c42a1dcabdf4ebf111c7f))
+
 # [1.6.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.5.0...core/v1.6.0) (2023-07-25)
 
 
