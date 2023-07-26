@@ -44,5 +44,8 @@
       "parent-pom-project-folder": "examples/libs/parent-lib",
       "parent-pom-folder": "examples"
     }
-  }
+  },
+  "plugins": [
+    "@nx-dev-tools/java-mvn"
+  ]
 }

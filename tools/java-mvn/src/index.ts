@@ -8,6 +8,7 @@ import {
 import {XMLParser} from "fast-xml-parser";
 import {readProjectJson, readNxJson, getFileContents} from "@nx-dev-tools/core";
 import {readPomInFolder} from "./core/pom";
+import * as path from "path";
 
 const parser = new XMLParser();
 
@@ -65,10 +66,17 @@ export const processProjectGraph = (
   return builder.getUpdatedProjectGraph();
 }
 
-export const buildProjectTree = (builder: ProjectGraphBuilder, path: string, pomPath: string, parent: ProjectConfiguration, parentGroupId: string, accumulator: { [artifact: string]: Project }) => {
+export const buildProjectTree = (builder: ProjectGraphBuilder, basePath: string, pomPath: string, parent: ProjectConfiguration, parentGroupId: string, accumulator: { [artifact: string]: Project }) => {
   let project = undefined;
 
-  project = readProjectJson(path);
+  const nxJsonConf = readNxJson();
+
+  if (parent) {
+    basePath = `${nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-folder']}/${basePath}`;
+    pomPath = `${nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-folder']}/${pomPath}`;
+  }
+
+  project = readProjectJson(basePath);
 
   let pom = readPomInFolder(pomPath);
 
