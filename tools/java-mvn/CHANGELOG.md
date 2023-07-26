@@ -1,3 +1,18 @@
+# [1.8.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.7.0...java-mvn/v1.8.0) (2023-07-26)
+
+
+### Bug Fixes
+
+* fix build ([3aeb580](https://github.com/dubemarcantoine/nx-dev-tools/commit/3aeb580fbacc772d94727385821a2544e2b948d2))
+* fix java-mvn dep graph relative paths ([82802df](https://github.com/dubemarcantoine/nx-dev-tools/commit/82802dfea9ec4c2e910c42a1dcabdf4ebf111c7f))
+* fix relative path between parent project and custom pom location ([7b6903a](https://github.com/dubemarcantoine/nx-dev-tools/commit/7b6903a7e7fc44c9e404ed676b16b200f7421e1c))
+
+
+### Features
+
+* generate project java files ([7b7b327](https://github.com/dubemarcantoine/nx-dev-tools/commit/7b7b327c82e77d35ce581fcce92c84bc63b413b9))
+* simplify project generation and add basic example in readme ([906bf57](https://github.com/dubemarcantoine/nx-dev-tools/commit/906bf57a555783bc98042b3315b70e0d59a90a31))
+
 # [1.7.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.6.0...java-mvn/v1.7.0) (2023-07-25)
 
 
