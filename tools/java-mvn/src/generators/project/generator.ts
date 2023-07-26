@@ -70,7 +70,7 @@ const normalizeOptions = async (tree: Tree, options: ProjectGeneratorSchema): Pr
 
   const camelCaseArtifactId = snakeCaseToCamelCase(artifactId);
   const packageName = `${parentGroupId}.${camelCaseArtifactId}`;
-  const packageDirectory = packageName.replaceAll('.', '/');
+  const packageDirectory = packageName.split('.').join('/');
 
   const className = camelCaseArtifactId[0].toUpperCase() + camelCaseArtifactId.slice(1);
 
