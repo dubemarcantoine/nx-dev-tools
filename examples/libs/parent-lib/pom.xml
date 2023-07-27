@@ -7,7 +7,7 @@
   <properties></properties>
   <packaging>pom</packaging>
   <modules>
-    <module>libs/lib1</module>
+    <module>examples/libs/lib1</module>
   </modules>
   <dependencyManagement>
     <dependencies>

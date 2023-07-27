@@ -4,8 +4,14 @@
   "projectType": "library",
   "sourceRoot": "examples/libs/lib1/src",
   "targets": {
-    "build": {
-      "executor": "@nx-dev-tools/java-mvn:build"
+    "install": {
+      "executor": "@nx-dev-tools/java-mvn:install",
+      "options": {
+        "root": "examples/libs/lib1",
+        "args": ["-Dmaven.test.skip=true"]
+      },
+      "dependsOn": ["^install"],
+      "outputs": ["examples/libs/lib1/target"]
     }
   },
   "tags": []

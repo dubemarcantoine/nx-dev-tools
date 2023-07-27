@@ -4,6 +4,7 @@ import {
 import * as path from 'path';
 import {ProjectGeneratorSchema} from './schema';
 import * as fs from "fs";
+import {ProjectConfiguration} from "nx/src/config/workspace-json-project-json";
 
 interface NormalizedSchema extends ProjectGeneratorSchema {
   projectName: string;
@@ -73,17 +74,28 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
 
 export default async function (tree: Tree, options: ProjectGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
-  addProjectConfiguration(tree, normalizedOptions.projectName, {
+
+  const projectConfiguration: ProjectConfiguration = {
     root: normalizedOptions.projectRoot,
     projectType: normalizedOptions.projectType,
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
     targets: {
       install: {
-        executor: "@nx-dev-tools/java-mvn:build",
+        executor: "@nx-dev-tools/java-mvn:install",
+        options: {
+          root: normalizedOptions.pomLocation ?? normalizedOptions.projectRoot,
+          ignoreWrapper: true,
+          args: ["--non-recursive"]
+        },
+        outputs: [
+          `${normalizedOptions.projectRoot}/target`
+        ]
       },
     },
     tags: normalizedOptions.parsedTags,
-  });
+  };
+
+  addProjectConfiguration(tree, normalizedOptions.projectName, projectConfiguration);
   addFiles(tree, normalizedOptions);
   await formatFiles(tree);
 }

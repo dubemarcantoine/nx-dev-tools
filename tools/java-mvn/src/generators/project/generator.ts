@@ -12,6 +12,7 @@ import * as path from 'path';
 import {ProjectGeneratorSchema} from './schema';
 import {readPom} from "../../core/pom";
 import {XMLBuilder} from "fast-xml-parser";
+import {ProjectConfiguration} from "nx/src/config/workspace-json-project-json";
 
 interface NormalizedSchema extends ProjectGeneratorSchema {
   projectName: string;
@@ -72,7 +73,7 @@ const normalizeOptions = async (tree: Tree, options: ProjectGeneratorSchema): Pr
   const packageName = `${parentGroupId}.${camelCaseArtifactId}`;
   const packageDirectory = packageName.split('.').join('/');
 
-  const className = camelCaseArtifactId[0].toUpperCase() + camelCaseArtifactId.slice(1);
+  const className = camelCaseArtifactId[0].toUpperCase() + camelCaseArtifactId.slice(1) + options.projectType === 'application' ? 'App' : 'Lib';
 
   return {
     ...options,
@@ -139,20 +140,35 @@ const updateParentPom = async (tree: Tree, options: NormalizedSchema) => {
 
 export default async function (tree: Tree, options: ProjectGeneratorSchema) {
   const normalizedOptions = await normalizeOptions(tree, options);
+
+  const projectConfiguration: ProjectConfiguration = {
+    root: normalizedOptions.projectRoot,
+    projectType: normalizedOptions.projectType,
+    sourceRoot: `${normalizedOptions.projectRoot}/src`,
+    targets: {
+      install: {
+        executor: "@nx-dev-tools/java-mvn:install",
+        options: {
+          root: normalizedOptions.projectRoot,
+          args: [
+            "-Dmaven.test.skip=true"
+          ]
+        },
+        dependsOn: [
+          "^install"
+        ],
+        outputs: [
+          `${normalizedOptions.projectRoot}/target`
+        ],
+      },
+    },
+    tags: normalizedOptions.parsedTags,
+  };
+
   addProjectConfiguration(
     tree,
     normalizedOptions.projectName,
-    {
-      root: normalizedOptions.projectRoot,
-      projectType: normalizedOptions.projectType,
-      sourceRoot: `${normalizedOptions.projectRoot}/src`,
-      targets: {
-        build: {
-          executor: "@nx-dev-tools/java-mvn:build",
-        },
-      },
-      tags: normalizedOptions.parsedTags,
-    }
+    projectConfiguration,
   );
   addFiles(tree, normalizedOptions);
   await formatFiles(tree);

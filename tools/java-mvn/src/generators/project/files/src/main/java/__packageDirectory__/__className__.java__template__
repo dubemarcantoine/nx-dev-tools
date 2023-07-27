@@ -1,0 +1,16 @@
+package <%= packageName %>;
+
+public class <%= className %> {
+
+<% if(projectType === 'application'){ %>
+  public static void main(String[] args) {
+    System.out.println("Hello <%= className %>!");
+  }
+<% } %>
+
+<% if(projectType === 'library'){ %>
+  public void hello() {
+    System.out.println("Hello <%= className %>!");
+  }
+<% } %>
+}
