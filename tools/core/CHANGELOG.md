@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.6.1...core/v1.7.0) (2023-07-27)
+
+
+### Features
+
+* add install in generator ([078b182](https://github.com/dubemarcantoine/nx-dev-tools/commit/078b182d64500c9bf9ef6f927223ab55d00838c7))
+
 ## [1.6.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.6.0...core/v1.6.1) (2023-07-26)
 
 
