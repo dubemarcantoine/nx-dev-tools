@@ -1,11 +1,5 @@
 import {
-  addProjectConfiguration,
-  formatFiles,
-  generateFiles,
-  getWorkspaceLayout,
-  names,
-  offsetFromRoot,
-  Tree, updateJson,
+  addProjectConfiguration, formatFiles, generateFiles, getWorkspaceLayout, names, offsetFromRoot, Tree, updateJson,
 } from '@nrwl/devkit';
 import * as path from 'path';
 import {ProjectGeneratorSchema} from './schema';
@@ -22,17 +16,13 @@ interface NormalizedSchema extends ProjectGeneratorSchema {
 
 function normalizeOptions(tree: Tree, options: ProjectGeneratorSchema): NormalizedSchema {
   const name = names(options.name).fileName;
-  const projectDirectory = options.directory
-    ? `${names(options.directory).fileName}/${name}`
-    : name;
+  const projectDirectory = options.directory ? `${names(options.directory).fileName}/${name}` : name;
   const projectName = projectDirectory.replace(new RegExp('/', 'g'), '-');
 
   const root = options.projectType === 'application' ? `${getWorkspaceLayout(tree).appsDir}` : `${getWorkspaceLayout(tree).libsDir}`;
 
   const projectRoot = `${root}/${projectDirectory}`;
-  const parsedTags = options.tags
-    ? options.tags.split(',').map((s) => s.trim())
-    : [];
+  const parsedTags = options.tags ? options.tags.split(',').map((s) => s.trim()) : [];
 
   const projectType = options.projectType;
 
@@ -57,25 +47,20 @@ function normalizeOptions(tree: Tree, options: ProjectGeneratorSchema): Normaliz
 }
 
 function addFiles(tree: Tree, options: NormalizedSchema) {
-    const templateOptions = {
-      ...options,
-      ...names(options.name),
-      offsetFromRoot: offsetFromRoot(options.projectRoot),
-      template: ''
-    };
-    generateFiles(tree, path.join(__dirname, 'files'), options.projectRoot, templateOptions);
+  const templateOptions = {
+    ...options, ...names(options.name), offsetFromRoot: offsetFromRoot(options.projectRoot), template: ''
+  };
+  generateFiles(tree, path.join(__dirname, 'files'), options.projectRoot, templateOptions);
 
-    let pomFolder;
-    if (options.pomLocation) {
-      pomFolder = options.pomLocation;
-      const pomLocationAndProjectRelativePath = path.relative(pomFolder, options.projectRoot);
-      fs.symlinkSync(`${pomLocationAndProjectRelativePath}/pom.xml`, `${pomFolder}/pom.xml`);
-    } else {
-      pomFolder = options.projectRoot;
-    }
+  let pomFolder;
+  if (options.pomLocation) {
+    pomFolder = options.pomLocation;
+    const pomLocationAndProjectRelativePath = path.relative(pomFolder, options.projectRoot);
+    fs.symlinkSync(`${pomLocationAndProjectRelativePath}/pom.xml`, `${pomFolder}/pom.xml`);
+  } else {
+    pomFolder = options.projectRoot;
+  }
 
-    console.log(`${options.projectRoot}/pom.xml`)
-    console.log(path.relative(pomFolder, options.projectRoot))
 
   updateJson(tree, 'nx.json', (nxJson) => {
     nxJson.pluginsConfig = nxJson.pluginsConfig ?? {};
@@ -88,21 +73,17 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
 
 export default async function (tree: Tree, options: ProjectGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
-  addProjectConfiguration(
-    tree,
-    normalizedOptions.projectName,
-    {
-      root: normalizedOptions.projectRoot,
-      projectType: normalizedOptions.projectType,
-      sourceRoot: `${normalizedOptions.projectRoot}/src`,
-      targets: {
-        build: {
-          executor: "@nx-dev-tools/java-mvn:build",
-        },
+  addProjectConfiguration(tree, normalizedOptions.projectName, {
+    root: normalizedOptions.projectRoot,
+    projectType: normalizedOptions.projectType,
+    sourceRoot: `${normalizedOptions.projectRoot}/src`,
+    targets: {
+      install: {
+        executor: "@nx-dev-tools/java-mvn:build",
       },
-      tags: normalizedOptions.parsedTags,
-    }
-  );
+    },
+    tags: normalizedOptions.parsedTags,
+  });
   addFiles(tree, normalizedOptions);
   await formatFiles(tree);
 }
