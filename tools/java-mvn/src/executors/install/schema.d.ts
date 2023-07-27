@@ -1,4 +1,3 @@
-export interface InstallExecutorSchema {
-  root: string;
-  args?: string[];
-}
+import {MvnExecutorSchema} from "../../core/mvn-executor-schema";
+
+export type InstallExecutorSchema = MvnExecutorSchema;
