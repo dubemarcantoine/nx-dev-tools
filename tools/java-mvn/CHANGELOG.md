@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.10.0...java-mvn/v1.11.0) (2023-07-27)
+
+
+### Features
+
+* add build executor for java ([0e23e4e](https://github.com/dubemarcantoine/nx-dev-tools/commit/0e23e4e9f555a310eaec04c29c2309e2d6dfb996))
+
 # [1.10.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.9.0...java-mvn/v1.10.0) (2023-07-27)
 
 
