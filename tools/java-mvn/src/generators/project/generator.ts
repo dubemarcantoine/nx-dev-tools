@@ -165,6 +165,24 @@ export default async function (tree: Tree, options: ProjectGeneratorSchema) {
     tags: normalizedOptions.parsedTags,
   };
 
+  if (normalizedOptions.projectType === 'application') {
+    projectConfiguration.targets['build'] = {
+      executor: "@nx-dev-tools/java-mvn:build",
+      options: {
+        root: normalizedOptions.projectRoot,
+        args: [
+          "-Dmaven.test.skip=true"
+        ]
+      },
+      dependsOn: [
+        "^install"
+      ],
+      outputs: [
+        `${normalizedOptions.projectRoot}/target`
+      ],
+    };
+  }
+
   addProjectConfiguration(
     tree,
     normalizedOptions.projectName,
