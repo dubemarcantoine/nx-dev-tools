@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.8.0...java-mvn/v1.9.0) (2023-07-27)
+
+
+### Features
+
+* add install executor ([86443a7](https://github.com/dubemarcantoine/nx-dev-tools/commit/86443a7125fb946c0e00a39173a7daa5f4a121cf))
+
 # [1.8.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.7.0...java-mvn/v1.8.0) (2023-07-26)
 
 
