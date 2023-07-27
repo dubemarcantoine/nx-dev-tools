@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.9.0...java-mvn/v1.10.0) (2023-07-27)
+
+
+### Features
+
+* add install in generator ([078b182](https://github.com/dubemarcantoine/nx-dev-tools/commit/078b182d64500c9bf9ef6f927223ab55d00838c7))
+
 # [1.9.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.8.0...java-mvn/v1.9.0) (2023-07-27)
 
 
