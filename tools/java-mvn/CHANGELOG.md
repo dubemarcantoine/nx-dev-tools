@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.12.0...java-mvn/v1.12.1) (2023-07-28)
+
+
+### Bug Fixes
+
+* fix mixed up executor names ([5612df8](https://github.com/dubemarcantoine/nx-dev-tools/commit/5612df8107c3cf5a833790debc79a02f7426b146))
+
 # [1.12.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.11.0...java-mvn/v1.12.0) (2023-07-28)
 
 
