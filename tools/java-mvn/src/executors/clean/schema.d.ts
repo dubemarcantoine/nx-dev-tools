@@ -1,3 +1,3 @@
 import {MvnExecutorSchema} from "../../core/mvn-executor-schema";
 
-export type CleanExecutorSchema = MvnExecutorSchema;
+export type InstallExecutorSchema = MvnExecutorSchema;

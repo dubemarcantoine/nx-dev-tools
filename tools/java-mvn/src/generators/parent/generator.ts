@@ -91,6 +91,13 @@ export default async function (tree: Tree, options: ProjectGeneratorSchema) {
           `${normalizedOptions.projectRoot}/target`
         ]
       },
+      clean: {
+        executor: "@nx-dev-tools/java-mvn:clean",
+        options: {
+          root: normalizedOptions.pomLocation ?? normalizedOptions.projectRoot,
+          args: ["--non-recursive"]
+        }
+      },
     },
     tags: normalizedOptions.parsedTags,
   };
