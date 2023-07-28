@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.12.1...java-mvn/v1.12.2) (2023-07-28)
+
+
+### Bug Fixes
+
+* fix execute command hardcoded ([270fdbf](https://github.com/dubemarcantoine/nx-dev-tools/commit/270fdbff832b4001ab2db675d45311f350eb1c87))
+
 ## [1.12.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.12.0...java-mvn/v1.12.1) (2023-07-28)
 
 
