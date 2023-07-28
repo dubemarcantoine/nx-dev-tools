@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.11.0...java-mvn/v1.12.0) (2023-07-28)
+
+
+### Features
+
+* add clean command ([86f2f16](https://github.com/dubemarcantoine/nx-dev-tools/commit/86f2f16e3099689c9c83fe9f6958dbae34a63b87))
+
 # [1.11.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.10.0...java-mvn/v1.11.0) (2023-07-27)
 
 
