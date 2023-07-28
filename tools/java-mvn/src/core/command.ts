@@ -14,7 +14,7 @@ const normalizeOptions = (options: MvnExecutorSchema): NormalizedSchema => {
 export const executeCommand = (command: string, options: NormalizedSchema) => {
   const normalizedOptions = normalizeOptions(options);
 
-  const fullCommand = `mvn install ${normalizedOptions.args}`;
+  const fullCommand = `mvn ${command} ${normalizedOptions.args}`;
 
   try {
     logger.info(`Executing command: ${fullCommand}`);
