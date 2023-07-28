@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema",
   "version": 2,
-  "title": "Clean executor",
+  "title": "Install executor",
   "description": "",
   "type": "object",
   "properties": {
