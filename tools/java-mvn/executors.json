@@ -15,6 +15,11 @@
       "implementation": "./src/executors/clean/executor",
       "schema": "./src/executors/clean/schema.json",
       "description": "clean executor"
+    },
+    "test": {
+      "implementation": "./src/executors/test/executor",
+      "schema": "./src/executors/test/schema.json",
+      "description": "test executor"
     }
   }
 }
