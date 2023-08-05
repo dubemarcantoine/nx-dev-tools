@@ -30,6 +30,10 @@ export const processProjectGraph = (
 
   const nxJsonConf = readNxJson();
 
+  if (!nxJsonConf.pluginsConfig || !nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']) {
+    return graph;
+  }
+
   const parentRoot = nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-project-folder'];
   const parentPomFolder = nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-folder'];
 
