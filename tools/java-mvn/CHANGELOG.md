@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.13.0...java-mvn/v1.13.1) (2023-08-05)
+
+
+### Bug Fixes
+
+* add missing test executor in generators ([6cdfa20](https://github.com/dubemarcantoine/nx-dev-tools/commit/6cdfa201c3cf368ee0dfeef7985c17402ffea7dc))
+
 # [1.13.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.12.2...java-mvn/v1.13.0) (2023-08-03)
 
 
