@@ -1,3 +1,10 @@
+## [1.13.2](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.13.1...java-mvn/v1.13.2) (2023-08-05)
+
+
+### Bug Fixes
+
+* fix java-mvn dep graph error when project not init ([1007610](https://github.com/dubemarcantoine/nx-dev-tools/commit/10076101f059a49c79234f962a2a1ad2fdec3cac))
+
 ## [1.13.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.13.0...java-mvn/v1.13.1) (2023-08-05)
 
 
