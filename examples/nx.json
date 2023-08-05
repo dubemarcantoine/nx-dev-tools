@@ -1,0 +1,23 @@
+{
+  "extends": "nx/presets/npm.json",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
+  "plugins": ["@nx-dev-tools/java-mvn"],
+  "pluginsConfig": {
+    "@nx-dev-tools/java-mvn": {
+      "parent-pom-project-folder": "libs/parent-lib",
+      "parent-pom-folder": "."
+    }
+  }
+}

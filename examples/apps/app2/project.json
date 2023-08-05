@@ -1,0 +1,41 @@
+{
+  "name": "app2",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/app2/src",
+  "targets": {
+    "install": {
+      "executor": "@nx-dev-tools/java-mvn:install",
+      "options": {
+        "root": "apps/app2",
+        "args": ["-Dmaven.test.skip=true"]
+      },
+      "dependsOn": ["^install"],
+      "outputs": ["apps/app2/target"]
+    },
+    "clean": {
+      "executor": "@nx-dev-tools/java-mvn:clean",
+      "options": {
+        "root": "apps/app2",
+        "args": ["--non-recursive"]
+      }
+    },
+    "test": {
+      "executor": "@nx-dev-tools/java-mvn:test",
+      "options": {
+        "root": "apps/app2",
+        "args": ["--non-recursive"]
+      }
+    },
+    "build": {
+      "executor": "@nx-dev-tools/java-mvn:build",
+      "options": {
+        "root": "apps/app2",
+        "args": ["-Dmaven.test.skip=true"]
+      },
+      "dependsOn": ["^install"],
+      "outputs": ["apps/app2/target"]
+    }
+  },
+  "tags": []
+}

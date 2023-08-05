@@ -17,14 +17,6 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {
-      "@nx-dev-tools/core": [
-        "tools/core/src/index.ts"
-      ],
-      "@nx-dev-tools/java-mvn": [
-        "tools/java-mvn/src/index.ts"
-      ]
-    }
   },
   "exclude": [
     "node_modules",

@@ -1,0 +1,31 @@
+{
+  "name": "parent-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/parent-lib/src",
+  "targets": {
+    "install": {
+      "executor": "@nx-dev-tools/java-mvn:install",
+      "options": {
+        "root": ".",
+        "args": ["--non-recursive"]
+      },
+      "outputs": ["libs/parent-lib/target"]
+    },
+    "clean": {
+      "executor": "@nx-dev-tools/java-mvn:clean",
+      "options": {
+        "root": ".",
+        "args": ["--non-recursive"]
+      }
+    },
+    "test": {
+      "executor": "@nx-dev-tools/java-mvn:test",
+      "options": {
+        "root": "libs/parent-lib",
+        "args": ["--non-recursive"]
+      }
+    }
+  },
+  "tags": []
+}

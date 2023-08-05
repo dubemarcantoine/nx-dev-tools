@@ -36,14 +36,6 @@
     "sharedGlobals": []
   },
   "workspaceLayout": {
-    "appsDir": "examples/apps",
-    "libsDir": "examples/libs"
-  },
-  "pluginsConfig": {
-    "@nx-dev-tools/java-mvn": {
-      "parent-pom-project-folder": "examples/libs/parent-lib",
-      "parent-pom-folder": "."
-    }
-  },
-  "plugins": []
+    "libsDir": "tools"
+  }
 }
