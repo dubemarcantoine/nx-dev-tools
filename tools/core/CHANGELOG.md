@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.7.0...core/v1.7.1) (2023-08-05)
+
+
+### Bug Fixes
+
+* add missing test executor in generators ([6cdfa20](https://github.com/dubemarcantoine/nx-dev-tools/commit/6cdfa201c3cf368ee0dfeef7985c17402ffea7dc))
+
 # [1.7.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.6.1...core/v1.7.0) (2023-07-27)
 
 
