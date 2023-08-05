@@ -84,7 +84,6 @@ export default async function (tree: Tree, options: ProjectGeneratorSchema) {
         executor: "@nx-dev-tools/java-mvn:install",
         options: {
           root: normalizedOptions.pomLocation ?? normalizedOptions.projectRoot,
-          ignoreWrapper: true,
           args: ["--non-recursive"]
         },
         outputs: [
@@ -95,6 +94,13 @@ export default async function (tree: Tree, options: ProjectGeneratorSchema) {
         executor: "@nx-dev-tools/java-mvn:clean",
         options: {
           root: normalizedOptions.pomLocation ?? normalizedOptions.projectRoot,
+          args: ["--non-recursive"]
+        }
+      },
+      test: {
+        executor: "@nx-dev-tools/java-mvn:test",
+        options: {
+          root: normalizedOptions.projectRoot,
           args: ["--non-recursive"]
         }
       },

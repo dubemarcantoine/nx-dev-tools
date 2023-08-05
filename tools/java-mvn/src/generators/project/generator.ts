@@ -168,6 +168,13 @@ export default async function (tree: Tree, options: ProjectGeneratorSchema) {
           args: ["--non-recursive"]
         }
       },
+      test: {
+        executor: "@nx-dev-tools/java-mvn:test",
+        options: {
+          root: normalizedOptions.projectRoot,
+          args: ["--non-recursive"]
+        }
+      },
     },
     tags: normalizedOptions.parsedTags,
   };
