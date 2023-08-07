@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/docker/v1.0.0...docker/v1.1.0) (2023-08-07)
+
+
+### Features
+
+* add k8s deploy ([f7c085b](https://github.com/dubemarcantoine/nx-dev-tools/commit/f7c085b2b2c5793ee0a12c608311e2c96447a7b4))
+
 # 1.0.0 (2023-08-07)
 
 
