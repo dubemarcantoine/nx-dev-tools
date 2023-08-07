@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.13.2...java-mvn/v1.14.0) (2023-08-07)
+
+
+### Features
+
+* add k8s deploy ([f7c085b](https://github.com/dubemarcantoine/nx-dev-tools/commit/f7c085b2b2c5793ee0a12c608311e2c96447a7b4))
+
 ## [1.13.2](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.13.1...java-mvn/v1.13.2) (2023-08-05)
 
 
