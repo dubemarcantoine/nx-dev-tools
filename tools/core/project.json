@@ -26,16 +26,6 @@
             "glob": "**/*.d.ts",
             "output": "./src"
           },
-          {
-            "input": "./tools/core",
-            "glob": "generators.json",
-            "output": "."
-          },
-          {
-            "input": "./tools/core",
-            "glob": "executors.json",
-            "output": "."
-          }
         ]
       }
     },
@@ -45,8 +35,6 @@
       "options": {
         "lintFilePatterns": [
           "tools/core/**/*.ts",
-          "tools/core/generators.json",
-          "tools/core/executors.json",
           "tools/core/package.json"
         ]
       }
