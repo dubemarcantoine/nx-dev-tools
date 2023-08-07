@@ -15,6 +15,5 @@
     "directory": "tools/docker"
   },
   "homepage": "https://github.com/dubemarcantoine/nx-dev-tools",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
