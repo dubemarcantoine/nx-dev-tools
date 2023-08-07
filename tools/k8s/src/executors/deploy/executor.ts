@@ -39,6 +39,8 @@ export default async function runExecutor(
 
   const specString = await fs.promises.readFile(options.specPath);
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const specs: KubernetesObject[] = yaml.loadAll(specString);
   const validSpecs = specs.filter((s) => s && s.kind && s.metadata);
 
@@ -46,6 +48,8 @@ export default async function runExecutor(
 
   for (const spec of validSpecs) {
     try {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       await client.read(spec);
 
       spec.metadata = spec.metadata || {};
