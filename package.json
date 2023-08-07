@@ -10,6 +10,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
+    "@kubernetes/client-node": "^0.18.1",
     "@nrwl/devkit": "^16.5.5",
     "@nx/eslint-plugin": "16.0.0",
     "@nx/jest": "16.0.0",
