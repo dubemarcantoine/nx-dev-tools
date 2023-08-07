@@ -1,0 +1,17 @@
+{
+  "name": "@nx-dev-tools/tags",
+  "version": "1.7.1",
+  "main": "src/index.js",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "author": "Marc-Antoine Dubé",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dubemarcantoine/nx-dev-tools.git",
+    "directory": "tools/tags"
+  },
+  "homepage": "https://github.com/dubemarcantoine/nx-dev-tools"
+}

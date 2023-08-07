@@ -1,0 +1,20 @@
+{
+  "name": "@nx-dev-tools/docker",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "executors": "./executors.json",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "author": "Marc-Antoine Dubé",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dubemarcantoine/nx-dev-tools.git",
+    "directory": "tools/docker"
+  },
+  "homepage": "https://github.com/dubemarcantoine/nx-dev-tools",
+  "dependencies": {
+  }
+}
