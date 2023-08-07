@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.7.1...core/v1.8.0) (2023-08-07)
+
+
+### Features
+
+* add k8s deploy ([f7c085b](https://github.com/dubemarcantoine/nx-dev-tools/commit/f7c085b2b2c5793ee0a12c608311e2c96447a7b4))
+
 ## [1.7.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.7.0...core/v1.7.1) (2023-08-05)
 
 
