@@ -11,6 +11,9 @@
         "outputPath": "dist/tools/docker",
         "main": "tools/docker/src/index.ts",
         "tsConfig": "tools/docker/tsconfig.lib.json",
+        "packageJson": "tools/docker/package.json",
+        "updateBuildableProjectDepsInPackageJson": true,
+        "buildableProjectDepsInPackageJsonType": "dependencies",
         "assets": [
           "tools/docker/*.md",
           {
@@ -32,12 +35,11 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
           "tools/docker/**/*.ts",
-          "tools/docker/generators.json",
           "tools/docker/executors.json",
           "tools/docker/package.json"
         ]
@@ -49,7 +51,16 @@
       "options": {
         "jestConfig": "tools/docker/jest.config.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
+    },
+    "release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release"
     }
   },
   "tags": []
