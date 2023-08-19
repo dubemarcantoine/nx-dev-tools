@@ -18,10 +18,7 @@
   <properties>
 
   </properties>
-  <packaging>pom</packaging>
-  <modules>
 
-  </modules>
   <dependencyManagement>
     <dependencies>
 
