@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.14.0...java-mvn/v1.14.1) (2023-08-19)
+
+
+### Bug Fixes
+
+* pom in project generator ([8144796](https://github.com/dubemarcantoine/nx-dev-tools/commit/8144796649c70afe498258e6dcbad3d3f73c2dbd))
+
 # [1.14.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.13.2...java-mvn/v1.14.0) (2023-08-07)
 
 
