@@ -1,3 +1,10 @@
+## [1.14.2](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.14.1...java-mvn/v1.14.2) (2023-09-01)
+
+
+### Bug Fixes
+
+* move resources under main folder ([6f4565a](https://github.com/dubemarcantoine/nx-dev-tools/commit/6f4565a24a1d1493fdf8332e1114c0a71b99975f))
+
 ## [1.14.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.14.0...java-mvn/v1.14.1) (2023-08-19)
 
 
