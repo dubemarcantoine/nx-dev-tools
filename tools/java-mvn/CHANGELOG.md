@@ -1,3 +1,10 @@
+## [1.14.3](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.14.2...java-mvn/v1.14.3) (2023-09-05)
+
+
+### Bug Fixes
+
+* executeCommand use string args ([c62718f](https://github.com/dubemarcantoine/nx-dev-tools/commit/c62718f13f73df5ed60b7f153fe434a25d7c3b4b))
+
 ## [1.14.2](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.14.1...java-mvn/v1.14.2) (2023-09-01)
 
 
