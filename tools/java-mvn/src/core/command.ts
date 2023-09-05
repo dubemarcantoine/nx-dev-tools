@@ -2,16 +2,19 @@ import {logger} from "@nrwl/devkit";
 import {execSync} from "child_process";
 import {MvnExecutorSchema} from "./mvn-executor-schema";
 
-type NormalizedSchema = MvnExecutorSchema
+interface NormalizedSchema {
+  root: string;
+  args: string;
+}
 
 const normalizeOptions = (options: MvnExecutorSchema): NormalizedSchema => {
   return {
     root: options.root,
-    args: options.args ?? [],
+    args: options?.args?.join(' ') ?? '',
   };
 }
 
-export const executeCommand = (command: string, options: NormalizedSchema) => {
+export const executeCommand = (command: string, options: MvnExecutorSchema) => {
   const normalizedOptions = normalizeOptions(options);
 
   const fullCommand = `mvn ${command} ${normalizedOptions.args}`;
