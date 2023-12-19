@@ -1,6 +1,6 @@
 {
   "name": "@nx-dev-tools/k8s",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "src/index.js",
   "executors": "./executors.json",
   "private": false,

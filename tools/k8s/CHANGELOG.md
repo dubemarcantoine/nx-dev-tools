@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.0.0...k8s/v1.1.0) (2023-12-19)
+
+
+### Features
+
+* add support for directories for k8s ([841295e](https://github.com/dubemarcantoine/nx-dev-tools/commit/841295e10f8b8b1aa5f4242d3642f9ede116ff95))
+
 # 1.0.0 (2023-08-07)
 
 
