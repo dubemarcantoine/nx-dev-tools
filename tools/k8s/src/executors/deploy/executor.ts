@@ -120,7 +120,6 @@ export default async function runExecutor(
 }
 
 const getFiles = (filePaths: string[], path: string): void => {
-  logger.info("path: " + path)
   if (!fs.lstatSync(path).isDirectory()) {
     filePaths.push(path);
   } else {
