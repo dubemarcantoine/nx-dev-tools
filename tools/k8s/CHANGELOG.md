@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.1.2...k8s/v1.1.3) (2023-12-22)
+
+
+### Bug Fixes
+
+* **k8s:** remove unneeded log ([abd8f9d](https://github.com/dubemarcantoine/nx-dev-tools/commit/abd8f9d9d82b1834dc1ec56be185a511cab68b4a))
+
 ## [1.1.2](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.1.1...k8s/v1.1.2) (2023-12-22)
 
 
