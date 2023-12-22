@@ -41,8 +41,6 @@ export default async function runExecutor(
 
   getFiles(specPaths, options.specPath);
 
-  specPaths.forEach(f => console.log(f))
-
   let success = true;
 
   for (let specPath of specPaths) {
