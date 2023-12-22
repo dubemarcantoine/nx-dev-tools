@@ -126,7 +126,6 @@ const getFiles = (filePaths: string[], path: string): void => {
     const files = fs.readdirSync(path, { withFileTypes: true });
 
     files.forEach(f => {
-      logger.info(f.name)
       if (!path.endsWith('/')) {
         path += '/';
       }
