@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.1.0...k8s/v1.1.1) (2023-12-22)
+
+
+### Bug Fixes
+
+* fix k8s getFiles ([05562ef](https://github.com/dubemarcantoine/nx-dev-tools/commit/05562ef0fe21cfca13212f757c4dcccd2f305f8f))
+
 # [1.1.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.0.0...k8s/v1.1.0) (2023-12-19)
 
 
