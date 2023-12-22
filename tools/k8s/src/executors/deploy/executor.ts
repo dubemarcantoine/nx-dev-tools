@@ -41,9 +41,12 @@ export default async function runExecutor(
 
   getFiles(specPaths, options.specPath);
 
+  specPaths.forEach(f => console.log(f))
+
   let success = true;
 
-  for (let specPath in specPaths) {
+  for (let specPath of specPaths) {
+    logger.info("Parsing file " + specPath);
     const specString = await fs.promises.readFile(specPath);
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -116,14 +119,19 @@ export default async function runExecutor(
   };
 }
 
-const getFiles = (filePaths: string[], rootFilePath: string): void => {
-  if (!fs.lstatSync(rootFilePath).isDirectory()) {
-    filePaths.push(rootFilePath);
+const getFiles = (filePaths: string[], path: string): void => {
+  logger.info("path: " + path)
+  if (!fs.lstatSync(path).isDirectory()) {
+    filePaths.push(path);
   } else {
-    const files = fs.readdirSync(rootFilePath, { withFileTypes: true });
+    const files = fs.readdirSync(path, { withFileTypes: true });
 
     files.forEach(f => {
-      getFiles(filePaths, rootFilePath);
+      logger.info(f.name)
+      if (!path.endsWith('/')) {
+        path += '/';
+      }
+      getFiles(filePaths, path + f.name);
     });
   }
 }
