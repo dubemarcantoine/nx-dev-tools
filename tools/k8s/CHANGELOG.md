@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.2.1...k8s/v1.3.0) (2023-12-30)
+
+
+### Bug Fixes
+
+* **k8s:** add missing function param ([6d05d82](https://github.com/dubemarcantoine/nx-dev-tools/commit/6d05d82f28d9689689cf5ff98914ea5bb0db5557))
+
+
+### Features
+
+* **k8s:** add simpleApply ([0bbedc1](https://github.com/dubemarcantoine/nx-dev-tools/commit/0bbedc1da3356c36be6624d00ed4a8454df8ee35))
+
 ## [1.2.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.2.0...k8s/v1.2.1) (2023-12-30)
 
 
