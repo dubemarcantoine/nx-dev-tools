@@ -32,6 +32,10 @@ export default async function runExecutor(
     };
   }
 
+  if (options.forcePatch === undefined) {
+    options.forcePatch = false;
+  }
+
   const kc = new KubeConfig();
   kc.loadFromDefault();
 
@@ -94,7 +98,7 @@ export default async function runExecutor(
           'Patching for: ' + spec.kind + ' named ' + spec.metadata.name
         );
 
-        await client.patch(spec, 'true');
+        await client.patch(spec, 'true', undefined, 'nx-dev-tools', options.forcePatch);
       } catch (e) {
         try {
           logger.warn('Patch failed, trying create. ' + e);
