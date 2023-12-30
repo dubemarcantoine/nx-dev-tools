@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.2.0...k8s/v1.2.1) (2023-12-30)
+
+
+### Bug Fixes
+
+* remove force patch for k8s ([23877a0](https://github.com/dubemarcantoine/nx-dev-tools/commit/23877a0f9402215c7dbb479f6b0bc485acc8d1bd))
+
 # [1.2.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.1.4...k8s/v1.2.0) (2023-12-30)
 
 
