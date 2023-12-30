@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.1.4...k8s/v1.2.0) (2023-12-30)
+
+
+### Features
+
+* add force patch option to k8s ([77c8d85](https://github.com/dubemarcantoine/nx-dev-tools/commit/77c8d8561432a83e9ea8e48b068028a4ad0ea451))
+
 ## [1.1.4](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.1.3...k8s/v1.1.4) (2023-12-22)
 
 
