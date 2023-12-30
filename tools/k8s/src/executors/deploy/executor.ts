@@ -127,7 +127,7 @@ export default async function runExecutor(
   }
 
   if (options.simpleApply) {
-    return simpleApply();
+    return simpleApply(options);
   } else {
     return await patchOrCreate(options);
   }
