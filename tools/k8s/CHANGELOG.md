@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.3.0...k8s/v1.3.1) (2023-12-30)
+
+
+### Bug Fixes
+
+* **k8s:** add error handling ([0e06bd4](https://github.com/dubemarcantoine/nx-dev-tools/commit/0e06bd42967bfcad4d093679014211c3f17649fd))
+
 # [1.3.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.2.1...k8s/v1.3.0) (2023-12-30)
 
 
