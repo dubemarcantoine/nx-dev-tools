@@ -98,10 +98,22 @@ const patchOrCreate = async (options: DeployExecutorSchema) => {
 }
 
 const simpleApply = (options: DeployExecutorSchema) => {
-  execSync(`kubectl apply -f ${options.specPath}`, {
-    stdio: [0, 1, 2],
-    maxBuffer: 1024*1024*1024 }
-  );
+  try {
+    execSync(`kubectl apply -f ${options.specPath}`, {
+      stdio: [0, 1, 2],
+      maxBuffer: 1024*1024*1024 }
+    );
+  } catch (e) {
+    logger.error(e);
+
+    return {
+      success: false,
+    };
+  }
+
+  return {
+    success: true,
+  };
 }
 
 export default async function runExecutor(
