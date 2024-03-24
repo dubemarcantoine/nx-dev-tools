@@ -24,6 +24,9 @@
       "@nx-dev-tools/docker": [
         "tools/docker/src/index.ts"
       ],
+      "@nx-dev-tools/image-cleaner": [
+        "tools/image-cleaner/src/index.ts"
+      ],
       "@nx-dev-tools/tags": [
         "tools/tags/src/index.ts"
       ],

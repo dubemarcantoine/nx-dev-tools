@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "executors": {
+    "clean": {
+      "implementation": "./src/executors/clean/executor",
+      "schema": "./src/executors/clean/schema.json",
+      "description": "clean executor"
+    }
+  }
+}

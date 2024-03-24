@@ -1,0 +1,21 @@
+{
+  "name": "@nx-dev-tools/image-cleaner",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "executors": "./executors.json",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "author": "Marc-Antoine Dubé",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dubemarcantoine/nx-dev-tools.git",
+    "directory": "tools/image-cleaner"
+  },
+  "homepage": "https://github.com/dubemarcantoine/nx-dev-tools",
+  "dependencies": {
+    "google-auth-library": "9.7.0"
+  }
+}
