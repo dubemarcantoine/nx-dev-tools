@@ -1,3 +1,10 @@
+## [1.14.4](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.14.3...java-mvn/v1.14.4) (2024-03-25)
+
+
+### Bug Fixes
+
+* missing dep ([723c68b](https://github.com/dubemarcantoine/nx-dev-tools/commit/723c68b520683cdf99b82c76b5d32d56bdfda61c))
+
 ## [1.14.3](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.14.2...java-mvn/v1.14.3) (2023-09-05)
 
 
