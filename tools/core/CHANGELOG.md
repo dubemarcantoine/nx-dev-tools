@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.8.0...core/v1.8.1) (2024-03-25)
+
+
+### Bug Fixes
+
+* missing dep ([723c68b](https://github.com/dubemarcantoine/nx-dev-tools/commit/723c68b520683cdf99b82c76b5d32d56bdfda61c))
+
 # [1.8.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.7.1...core/v1.8.0) (2023-08-07)
 
 
