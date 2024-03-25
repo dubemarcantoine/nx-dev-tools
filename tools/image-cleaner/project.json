@@ -13,6 +13,9 @@
         "outputPath": "dist/tools/image-cleaner",
         "main": "tools/image-cleaner/src/index.ts",
         "tsConfig": "tools/image-cleaner/tsconfig.lib.json",
+        "packageJson": "tools/image-cleaner/package.json",
+        "updateBuildableProjectDepsInPackageJson": true,
+        "buildableProjectDepsInPackageJsonType": "dependencies",
         "assets": [
           "tools/image-cleaner/*.md",
           {
