@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.3.1...k8s/v1.3.2) (2024-03-25)
+
+
+### Bug Fixes
+
+* missing dep ([723c68b](https://github.com/dubemarcantoine/nx-dev-tools/commit/723c68b520683cdf99b82c76b5d32d56bdfda61c))
+
 ## [1.3.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.3.0...k8s/v1.3.1) (2023-12-30)
 
 
