@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/tags/v1.1.0...tags/v1.1.1) (2024-03-25)
+
+
+### Bug Fixes
+
+* missing dep ([723c68b](https://github.com/dubemarcantoine/nx-dev-tools/commit/723c68b520683cdf99b82c76b5d32d56bdfda61c))
+
 # [1.1.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/tags/v1.0.0...tags/v1.1.0) (2023-08-07)
 
 
