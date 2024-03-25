@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/tools-image-cleaner/v1.0.0...tools-image-cleaner/v1.0.1) (2024-03-25)
+
+
+### Bug Fixes
+
+* add missing config ([c851c7f](https://github.com/dubemarcantoine/nx-dev-tools/commit/c851c7fdb8822595e50c9ef6487b41dc219758d1))
+
 # 1.0.0 (2024-03-25)
 
 
