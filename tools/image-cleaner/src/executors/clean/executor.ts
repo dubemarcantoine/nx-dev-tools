@@ -1,6 +1,5 @@
 import {CleanExecutor} from './schema';
 import {logger} from "nx/src/utils/logger";
-import {ArtifactRegistryClient} from "@google-cloud/artifact-registry";
 import {GoogleAuth} from "google-auth-library";
 
 const artifactRegistryUrl = `https://artifactregistry.googleapis.com/v1beta2`;
