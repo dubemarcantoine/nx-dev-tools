@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.14.5...java-mvn/v1.15.0) (2026-03-25)
+
+
+### Features
+
+* **all:** bump all versions ([dce4fdc](https://github.com/dubemarcantoine/nx-dev-tools/commit/dce4fdccda4914ee9ecd3c5e5862f7488fafd06f))
+
 ## [1.14.5](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.14.4...java-mvn/v1.14.5) (2026-03-25)
 
 
