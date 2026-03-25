@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/dubemarcantoine/nx-dev-tools/compare/tags/v1.1.1...tags/v1.1.2) (2026-03-25)
+
+
+### Bug Fixes
+
+* build ([302e869](https://github.com/dubemarcantoine/nx-dev-tools/commit/302e8691fa39bed23b1086972b581ddd36dbfb7e))
+
 ## [1.1.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/tags/v1.1.0...tags/v1.1.1) (2024-03-25)
 
 
