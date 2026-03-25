@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.8.1...core/v1.8.2) (2026-03-25)
+
+
+### Bug Fixes
+
+* update dependencies ([d5d359d](https://github.com/dubemarcantoine/nx-dev-tools/commit/d5d359d8005e4a3aeef5cb2624a30fe9f708e249))
+
 ## [1.8.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/core/v1.8.0...core/v1.8.1) (2024-03-25)
 
 

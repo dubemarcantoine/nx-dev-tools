@@ -1,6 +1,6 @@
 {
   "name": "@nx-dev-tools/core",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "main": "src/index.js",
   "private": false,
   "publishConfig": {
@@ -15,4 +15,3 @@
   },
   "homepage": "https://github.com/dubemarcantoine/nx-dev-tools"
 }
-
