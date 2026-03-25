@@ -1,3 +1,10 @@
+## [1.14.5](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.14.4...java-mvn/v1.14.5) (2026-03-25)
+
+
+### Bug Fixes
+
+* update dependencies ([d5d359d](https://github.com/dubemarcantoine/nx-dev-tools/commit/d5d359d8005e4a3aeef5cb2624a30fe9f708e249))
+
 ## [1.14.4](https://github.com/dubemarcantoine/nx-dev-tools/compare/java-mvn/v1.14.3...java-mvn/v1.14.4) (2024-03-25)
 
 
