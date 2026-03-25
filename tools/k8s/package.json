@@ -1,6 +1,6 @@
 {
   "name": "@nx-dev-tools/k8s",
-  "version": "1.3.6",
+  "version": "1.4.0",
   "main": "src/index.js",
   "executors": "./executors.json",
   "private": false,
@@ -19,4 +19,3 @@
     "@kubernetes/client-node": "^1.4.0"
   }
 }
-

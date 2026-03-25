@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.3.6...k8s/v1.4.0) (2026-03-25)
+
+
+### Features
+
+* **all:** bump all versions ([dce4fdc](https://github.com/dubemarcantoine/nx-dev-tools/commit/dce4fdccda4914ee9ecd3c5e5862f7488fafd06f))
+
 ## [1.3.6](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.3.5...k8s/v1.3.6) (2026-03-25)
 
 
