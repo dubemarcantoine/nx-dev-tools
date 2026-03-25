@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.3.4...k8s/v1.3.5) (2026-03-25)
+
+
+### Bug Fixes
+
+* bump versions ([bcc36b8](https://github.com/dubemarcantoine/nx-dev-tools/commit/bcc36b87a1f2c400a747ec1c06e8070c94b0a25c))
+
 ## [1.3.4](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.3.3...k8s/v1.3.4) (2026-03-25)
 
 
