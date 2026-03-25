@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/image-cleaner/v1.0.1...image-cleaner/v1.1.0) (2026-03-25)
+
+
+### Features
+
+* **all:** bump all versions ([dce4fdc](https://github.com/dubemarcantoine/nx-dev-tools/commit/dce4fdccda4914ee9ecd3c5e5862f7488fafd06f))
+
 ## [1.0.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/image-cleaner/v1.0.0...image-cleaner/v1.0.1) (2026-03-25)
 
 
