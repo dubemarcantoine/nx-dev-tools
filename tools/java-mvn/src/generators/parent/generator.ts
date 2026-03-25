@@ -1,10 +1,10 @@
 import {
-  addProjectConfiguration, formatFiles, generateFiles, getWorkspaceLayout, names, offsetFromRoot, Tree, updateJson,
+  addProjectConfiguration, formatFiles, generateFiles, getWorkspaceLayout, names, offsetFromRoot,
+  ProjectConfiguration, Tree, updateJson,
 } from '@nrwl/devkit';
 import * as path from 'path';
 import {ProjectGeneratorSchema} from './schema';
 import * as fs from "fs";
-import {ProjectConfiguration} from "nx/src/config/workspace-json-project-json";
 
 interface NormalizedSchema extends ProjectGeneratorSchema {
   projectName: string;

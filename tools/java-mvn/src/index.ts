@@ -1,16 +1,6 @@
-import {
-  logger,
-  ProjectConfiguration,
-  ProjectGraph,
-  ProjectGraphBuilder,
-  ProjectGraphProcessorContext,
-} from '@nrwl/devkit';
-import {XMLParser} from "fast-xml-parser";
-import {readProjectJson, readNxJson, getFileContents} from "@nx-dev-tools/core";
-import {readPomInFolder} from "./core/pom";
-import * as path from "path";
-
-const parser = new XMLParser();
+import { ProjectGraph } from '@nx/devkit'; // Removed unused imports
+import { readProjectJson, readNxJson } from "@nx-dev-tools/core";
+import { readPomInFolder } from "./core/pom";
 
 interface Project {
   projectName: string;
@@ -24,55 +14,66 @@ interface JavaDependency {
 
 export const processProjectGraph = (
   graph: ProjectGraph,
-  context: ProjectGraphProcessorContext
+  context: any
 ): ProjectGraph => {
-  const builder = new ProjectGraphBuilder(graph);
-
   const nxJsonConf = readNxJson();
 
   if (!nxJsonConf.pluginsConfig || !nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']) {
     return graph;
   }
 
-  const parentRoot = nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-project-folder'];
-  const parentPomFolder = nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-folder'];
+  const parentRoot = nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-project-folder'] as string;
+  const parentPomFolder = nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-folder'] as string;
 
   const parentPom = readPomInFolder(parentPomFolder);
   const parentGroupId = parentPom.project.groupId;
 
   const accumulator: { [artifact: string]: Project } = {};
-  buildProjectTree(builder, parentRoot, parentPomFolder, null, parentGroupId, accumulator);
+  buildProjectTree(graph, parentRoot, parentPomFolder, null, parentGroupId, accumulator);
 
-  Object.entries(accumulator).forEach(([, project]) => {
+  for (const [, project] of Object.entries(accumulator)) {
     if (!Array.isArray(project?.dependencies)) {
-      if (project?.dependencies?.groupId === '${project.groupId}') {
-        project.dependencies.groupId = parentGroupId;
+      let dependency = project.dependencies;
+      if (dependency?.groupId === '${project.groupId}') {
+        dependency.groupId = parentGroupId;
       }
-
-      const matchingProject = accumulator[`${project?.dependencies?.groupId}:${project?.dependencies?.artifactId}`];
+      const matchingProject = accumulator[`${dependency?.groupId}:${dependency?.artifactId}`];
       if (matchingProject) {
-        builder.addImplicitDependency(project.projectName, matchingProject.projectName);
+        graph.dependencies[project.projectName] ??= [];
+        graph.dependencies[project.projectName].push({
+          type: 'implicit',
+          source: project.projectName,
+          target: matchingProject.projectName,
+        });
       }
     } else {
-      (project as any)?.dependencies?.forEach(dependency => {
+      for (let dependency of project.dependencies) {
         if (dependency?.groupId === '${project.groupId}') {
           dependency.groupId = parentGroupId;
         }
-
         const matchingProject = accumulator[`${dependency?.groupId}:${dependency?.artifactId}`];
         if (matchingProject) {
-          builder.addImplicitDependency(project.projectName, matchingProject.projectName);
+          graph.dependencies[project.projectName] ??= [];
+          graph.dependencies[project.projectName].push({
+            type: 'implicit',
+            source: project.projectName,
+            target: matchingProject.projectName,
+          });
         }
-      })
+      }
     }
-  });
+  }
+  return graph;
+};
 
-  return builder.getUpdatedProjectGraph();
-}
-
-export const buildProjectTree = (builder: ProjectGraphBuilder, basePath: string, pomPath: string, parent: ProjectConfiguration, parentGroupId: string, accumulator: { [artifact: string]: Project }) => {
-  let project = undefined;
-
+export const buildProjectTree = (
+  graph: ProjectGraph,
+  basePath: string,
+  pomPath: string,
+  parent: any,
+  parentGroupId: string,
+  accumulator: { [artifact: string]: Project }
+) => {
   const nxJsonConf = readNxJson();
 
   if (parent) {
@@ -80,12 +81,16 @@ export const buildProjectTree = (builder: ProjectGraphBuilder, basePath: string,
     pomPath = `${nxJsonConf.pluginsConfig['@nx-dev-tools/java-mvn']['parent-pom-folder']}/${pomPath}`;
   }
 
-  project = readProjectJson(basePath);
-
-  let pom = readPomInFolder(pomPath);
+  const project = readProjectJson(basePath);
+  const pom = readPomInFolder(pomPath);
 
   if (parent) {
-    builder.addImplicitDependency(project.name, parent.name);
+    graph.dependencies[parent.name] ??= [];
+    graph.dependencies[parent.name].push({
+      type: 'implicit',
+      source: parent.name,
+      target: project.name,
+    });
   }
 
   accumulator[`${parentGroupId}:${pom.project.artifactId}`] = {
@@ -98,7 +103,7 @@ export const buildProjectTree = (builder: ProjectGraphBuilder, basePath: string,
   }
 
   pom.project?.modules?.module?.forEach(module => {
-    buildProjectTree(builder, module, module, project, parentGroupId, accumulator);
+    buildProjectTree(graph, module, module, project, parentGroupId, accumulator);
   });
-}
+};
 

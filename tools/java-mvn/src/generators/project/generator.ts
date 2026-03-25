@@ -5,6 +5,7 @@ import {
   getWorkspaceLayout,
   names,
   offsetFromRoot,
+  ProjectConfiguration,
   readNxJson,
   Tree,
 } from '@nrwl/devkit';
@@ -12,7 +13,6 @@ import * as path from 'path';
 import {ProjectGeneratorSchema} from './schema';
 import {readPom} from "../../core/pom";
 import {XMLBuilder} from "fast-xml-parser";
-import {ProjectConfiguration} from "nx/src/config/workspace-json-project-json";
 
 interface NormalizedSchema extends ProjectGeneratorSchema {
   projectName: string;

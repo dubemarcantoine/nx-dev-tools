@@ -11,7 +11,7 @@ const parser = new XMLParser({
   attributeNamePrefix: "@_",
   allowBooleanAttributes: true,
   isArray: (name, jpath, isLeafNode, isAttribute) => {
-    if (alwaysArray.indexOf(jpath) !== -1) return true;
+    if (alwaysArray.indexOf(jpath.toString()) !== -1) return true;
   }
 });
 
