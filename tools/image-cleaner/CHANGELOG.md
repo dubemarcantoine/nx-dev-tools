@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/image-cleaner/v1.0.0...image-cleaner/v1.0.1) (2026-03-25)
+
+
+### Bug Fixes
+
+* update dependencies ([d5d359d](https://github.com/dubemarcantoine/nx-dev-tools/commit/d5d359d8005e4a3aeef5cb2624a30fe9f708e249))
+
 # 1.0.0 (2024-03-25)
 
 
