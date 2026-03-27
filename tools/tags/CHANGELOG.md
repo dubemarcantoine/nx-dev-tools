@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/tags/v1.2.0...tags/v1.2.1) (2026-03-27)
+
+
+### Bug Fixes
+
+* bump tags version ([c094664](https://github.com/dubemarcantoine/nx-dev-tools/commit/c0946645dba5ecacec0a9e0e3c6adc9b098c0779))
+
 # [1.2.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/tags/v1.1.3...tags/v1.2.0) (2026-03-25)
 
 

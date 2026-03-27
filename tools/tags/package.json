@@ -1,6 +1,6 @@
 {
   "name": "@nx-dev-tools/tags",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "src/index.js",
   "private": false,
   "publishConfig": {
