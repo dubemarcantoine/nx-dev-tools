@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/docker/v1.1.4...docker/v1.2.0) (2026-03-27)
+
+
+### Bug Fixes
+
+* bump tags version ([c094664](https://github.com/dubemarcantoine/nx-dev-tools/commit/c0946645dba5ecacec0a9e0e3c6adc9b098c0779))
+
+
+### Features
+
+* **all:** bump all versions ([dce4fdc](https://github.com/dubemarcantoine/nx-dev-tools/commit/dce4fdccda4914ee9ecd3c5e5862f7488fafd06f))
+
 # [1.2.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/docker/v1.1.4...docker/v1.2.0) (2026-03-25)
 
 
