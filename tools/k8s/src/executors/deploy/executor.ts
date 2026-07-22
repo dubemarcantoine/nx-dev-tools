@@ -3,6 +3,7 @@ import {
   KubeConfig,
   KubernetesObject,
   KubernetesObjectApi,
+  PatchStrategy,
 } from '@kubernetes/client-node';
 import * as fs from 'fs';
 import * as yaml from 'js-yaml';
@@ -74,7 +75,14 @@ const patchOrCreate = async (options: DeployExecutorSchema) => {
             'Patching for: ' + spec.kind + ' named ' + spec.metadata.name
         );
 
-        await client.patch(spec, 'true', undefined, 'nx-dev-tools');
+        await client.patch(
+            spec,
+            'true',
+            undefined,
+            'nx-dev-tools',
+            undefined,
+            PatchStrategy.MergePatch
+        );
       } catch (e) {
         try {
           logger.warn('Patch failed, trying create. ' + e);
