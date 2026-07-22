@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.4.0...k8s/v1.4.1) (2026-07-22)
+
+
+### Bug Fixes
+
+* bump tags version ([c094664](https://github.com/dubemarcantoine/nx-dev-tools/commit/c0946645dba5ecacec0a9e0e3c6adc9b098c0779))
+* **k8s:** use merge patch strategy so CRDs (cert-manager, Gateway API) can be patched ([776899f](https://github.com/dubemarcantoine/nx-dev-tools/commit/776899f2964de6be77d5e8bf6c361789745b97a5))
+
 ## [1.4.1](https://github.com/dubemarcantoine/nx-dev-tools/compare/k8s/v1.4.0...k8s/v1.4.1) (2026-03-27)
 
 
