@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/image-cleaner/v1.1.0...image-cleaner/v1.2.0) (2026-08-05)
+
+
+### Features
+
+* **image-cleaner:** keep the 10 most recent images instead of only the current one ([f0691fd](https://github.com/dubemarcantoine/nx-dev-tools/commit/f0691fd1980e965e103c7199c0ba230090e3bf8e))
+
 # [1.1.0](https://github.com/dubemarcantoine/nx-dev-tools/compare/image-cleaner/v1.0.1...image-cleaner/v1.1.0) (2026-03-25)
 
 
