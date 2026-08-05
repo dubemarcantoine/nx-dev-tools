@@ -1,7 +1,7 @@
 /* eslint-disable */
 export default {
   displayName: 'tools-image-cleaner',
-  preset: '../../jest.preset.cjs',
+  preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
