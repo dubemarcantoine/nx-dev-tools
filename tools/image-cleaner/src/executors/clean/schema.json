@@ -2,8 +2,27 @@
   "$schema": "http://json-schema.org/schema",
   "version": 2,
   "title": "Clean executor",
-  "description": "",
+  "description": "Removes old images from an Artifact Registry package, keeping the most recent ones so a deployment can still be rolled back.",
   "type": "object",
-  "properties": {},
-  "required": []
+  "properties": {
+    "location": {
+      "type": "string",
+      "description": "Artifact Registry location, e.g. northamerica-northeast1."
+    },
+    "repository": {
+      "type": "string",
+      "description": "Artifact Registry repository name."
+    },
+    "package": {
+      "type": "string",
+      "description": "Package (image) name within the repository."
+    },
+    "keep": {
+      "type": "number",
+      "description": "How many of the most recent images to keep. Defaults to 10, so a bad release can be rolled back.",
+      "default": 10,
+      "minimum": 1
+    }
+  },
+  "required": ["location", "repository", "package"]
 }

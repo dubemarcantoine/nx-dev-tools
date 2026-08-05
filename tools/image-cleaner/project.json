@@ -53,7 +53,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "tools/docker/jest.config.ts",
+        "jestConfig": "tools/image-cleaner/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
